@@ -1,15 +1,22 @@
 # Rabius Sani — Portfolio Website
 
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-Deployed-black?logo=vercel)](https://rabius-sani.vercel.app)
+[![React 19](https://img.shields.io/badge/React-19.2-blue?logo=react)](https://react.dev)
+[![Vite](https://img.shields.io/badge/Vite-8.2-purple?logo=vite)](https://vitejs.dev)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 > High-performance personal portfolio showcasing full-stack engineering, native Android media streaming systems, and enterprise data analytics. Built with **React 19**, **Vite**, **Three.js**, and modern **Vanilla CSS**.
 
 ---
 
-## 🚀 Live Demo & Repository
+## 🚀 Live Demo & Connect
+- **Live Website**: [https://rabius-sani.vercel.app](https://rabius-sani.vercel.app)
 - **Author**: Mohammad Rabius Sani
 - **Role**: Software Engineer & Data Analyst
 - **GitHub**: [@mohammad-rabius-sani](https://github.com/mohammad-rabius-sani)
 - **LinkedIn**: [mohammad-rabius-sani](https://www.linkedin.com/in/mohammad-rabius-sani/)
-- **Email**: [contact.rabiussani@gmail.com](mailto:contact.rabiussani@gmail.com)
+- **Email**: [mohammad.rabius.sanii@gmail.com](mailto:mohammad.rabius.sanii@gmail.com)
+- **Direct Phone / WhatsApp**: +880 1774-745666
 
 ---
 

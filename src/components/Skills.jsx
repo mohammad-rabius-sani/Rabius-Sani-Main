@@ -3,14 +3,17 @@ import './Skills.css';
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [inspectedSkill, setInspectedSkill] = useState(null);
   const barsRef = useRef([]);
 
   const skillCategories = [
     { id: 'all', label: 'All Disciplines', icon: 'fas fa-layer-group' },
     { id: 'web', label: 'Full-Stack & Web', icon: 'fas fa-code' },
     { id: 'data', label: 'Data & Analytics', icon: 'fas fa-chart-pie' },
-    { id: 'mobile', label: 'Mobile & Android', icon: 'fab fa-android' },
-    { id: 'cloud', label: 'Databases & Ops', icon: 'fas fa-server' }
+    { id: 'mobile', label: 'Mobile & Android TV', icon: 'fab fa-android' },
+    { id: 'cloud', label: 'Databases & IT Ops', icon: 'fas fa-server' },
+    { id: 'ai', label: 'AI & Velocity Tooling', icon: 'fas fa-brain' }
   ];
 
   const pillarCards = [
@@ -19,32 +22,32 @@ const Skills = () => {
       subtitle: 'Frontend & APIs',
       icon: 'fab fa-react',
       color: 'cyan',
-      tech: 'React 18 · TypeScript · Vite · Tailwind CSS',
+      tech: 'React 18 · TypeScript · Tailwind CSS · Vite',
       level: '92%'
     },
     {
-      title: 'Data & BI',
+      title: 'Data & Analytics',
       subtitle: 'Intelligence & Modeling',
       icon: 'fas fa-chart-line',
       color: 'amber',
-      tech: 'Power BI · DAX · SQL · Excel Pivots',
+      tech: 'Power BI · DAX · PostgreSQL · Excel Models',
       level: '95%'
     },
     {
-      title: 'Mobile Systems',
-      subtitle: 'Native Android & Media',
+      title: 'Mobile & Android',
+      subtitle: 'Native TV & Media',
       icon: 'fab fa-android',
       color: 'green',
       tech: 'Kotlin · Jetpack Compose · Media3 ExoPlayer',
       level: '90%'
     },
     {
-      title: 'Databases & Ops',
-      subtitle: 'Storage & Infrastructure',
-      icon: 'fas fa-database',
+      title: 'IT & Cloud Ops',
+      subtitle: 'Systems & Reliability',
+      icon: 'fas fa-shield-halved',
       color: 'ember',
-      tech: 'PostgreSQL · Supabase RLS · IT Systems',
-      level: '92%'
+      tech: 'PostgreSQL · Supabase RLS · IT Systems · LAN',
+      level: '94%'
     }
   ];
 
@@ -57,7 +60,8 @@ const Skills = () => {
       tier: 'Production', 
       icon: 'fab fa-react', 
       iconColor: '#00d8ff',
-      detail: 'Component Architecture, Hooks, State Management, Strict Typing'
+      detail: 'Modular component architecture, strict typing, custom hooks, and state management.',
+      snippet: 'const [state, dispatch] = useReducer(appReducer, initialAppState);'
     },
     { 
       name: 'HTML5, Modern CSS & Tailwind', 
@@ -66,16 +70,18 @@ const Skills = () => {
       tier: 'Mastery', 
       icon: 'fab fa-css3-alt', 
       iconColor: '#38bdf8',
-      detail: 'Responsive Layouts, Glassmorphism, 3D CSS Transforms, Micro-animations'
+      detail: 'Responsive layouts, glassmorphism, 3D CSS perspective transforms, and micro-animations.',
+      snippet: 'backdrop-filter: blur(16px); transform: perspective(1200px) rotateX(4deg);'
     },
     { 
-      name: 'JavaScript (ES6+) & Modern Web APIs', 
+      name: 'JavaScript (ES6+) & Web APIs', 
       category: 'web', 
       level: 92, 
       tier: 'Advanced', 
       icon: 'fab fa-js', 
       iconColor: '#f7df1e',
-      detail: 'Async/Await, DOM Performance, Canvas, Local Storage & Fetch'
+      detail: 'Async/await, DOM optimization, Intersection Observer, Canvas, and Fetch pipelines.',
+      snippet: 'const observer = new IntersectionObserver((entries) => { ... }, { threshold: 0.1 });'
     },
     { 
       name: 'WordPress CMS & Web Deployments', 
@@ -84,7 +90,8 @@ const Skills = () => {
       tier: 'Solo Lead', 
       icon: 'fab fa-wordpress', 
       iconColor: '#21759b',
-      detail: 'Custom Themes, Plugin Optimization, Full Site Architecture & Client Deployments'
+      detail: 'Custom themes, plugin optimization, end-to-end site architecture and international client deployments.',
+      snippet: 'add_action("init", function() { register_custom_portfolio_post_type(); });'
     },
 
     // Data Analytics & BI
@@ -95,7 +102,8 @@ const Skills = () => {
       tier: 'Flagship', 
       icon: 'fas fa-chart-line', 
       iconColor: '#f2c811',
-      detail: 'Star-Schema Data Modeling, Time Intelligence, Profit Margin Forecasting'
+      detail: 'Star-schema relational modeling, time intelligence, profit margin forecasting, and dynamic KPI alert dials.',
+      snippet: 'YoY_Growth = DIVIDE([Total_Sales] - [Sales_LY], [Sales_LY], 0)'
     },
     { 
       name: 'Microsoft Excel (Pivots, Slicers, VBA)', 
@@ -104,7 +112,8 @@ const Skills = () => {
       tier: 'Mastery', 
       icon: 'fas fa-file-excel', 
       iconColor: '#107c41',
-      detail: 'Multi-Sheet Cleaning, Dynamic Dashboards, Nested Lookups & Slicers'
+      detail: 'Multi-sheet data cleaning, dynamic pivot dashboards, nested lookup formulas, and interactive slicers.',
+      snippet: '=XLOOKUP(A2, Clean_Data[Customer_ID], Clean_Data[Lifetime_Revenue], "N/A")'
     },
     { 
       name: 'SQL & PostgreSQL Relational Analytics', 
@@ -113,7 +122,8 @@ const Skills = () => {
       tier: 'Production', 
       icon: 'fas fa-database', 
       iconColor: '#336791',
-      detail: 'Window Functions, Subqueries, CTEs, Data Cleansing & Relational Normalization'
+      detail: 'Window ranking functions (DENSE_RANK), recursive CTEs, subqueries, and relational schema normalization.',
+      snippet: 'WITH CustomerRevenue AS (SELECT id, SUM(total) as rev FROM orders GROUP BY 1) ...'
     },
     { 
       name: 'Data Pipeline Engineering & ETL', 
@@ -122,10 +132,11 @@ const Skills = () => {
       tier: 'Advanced', 
       icon: 'fas fa-arrow-progress', 
       iconColor: '#ff6a1a',
-      detail: 'ETL Pipelines, Schema Validation, Business Metric Standardisation'
+      detail: 'Extract, Transform & Load workflows, data cleaning pipelines, and business metric standardization.',
+      snippet: 'ETL_Pipeline.ingest(rawCsv).normalize().validateTypes().writeToPostgres();'
     },
 
-    // Mobile & Android
+    // Mobile & Android TV
     { 
       name: 'Android TV & Google Media3 ExoPlayer', 
       category: 'mobile', 
@@ -133,7 +144,8 @@ const Skills = () => {
       tier: 'Flagship', 
       icon: 'fab fa-android', 
       iconColor: '#3ddc84',
-      detail: 'Custom HLS Bitrate Engine, D-Pad Remote Control Focus Engine, 0ms Cache'
+      detail: 'Adaptive HLS bitrate engine, D-pad remote key focus navigation, and 0ms in-session cache for 25k+ titles.',
+      snippet: 'val mediaItem = MediaItem.Builder().setUri(streamUri).setMimeType(MimeTypes.APPLICATION_M3U8).build()'
     },
     { 
       name: 'Kotlin & Jetpack Compose', 
@@ -142,7 +154,8 @@ const Skills = () => {
       tier: 'Production', 
       icon: 'fas fa-mobile-screen', 
       iconColor: '#7f52ff',
-      detail: 'Modern Declarative UI, Coroutines, StateFlow, Room Local SQLite DB'
+      detail: 'Declarative modern Android UI, Kotlin Coroutines, StateFlow, and Picture-in-Picture windowing.',
+      snippet: 'val uiState by viewModel.uiState.collectAsStateWithLifecycle()'
     },
     { 
       name: 'Clean Architecture & MVI Pattern', 
@@ -151,10 +164,11 @@ const Skills = () => {
       tier: 'Architecture', 
       icon: 'fas fa-cubes', 
       iconColor: '#00f5d4',
-      detail: 'Reactive Unidirectional Data Flow, SQLite Room, Zero Telemetry'
+      detail: 'Unidirectional data flow, immutable intent-to-state reducers, and 100% offline-first local Room SQLite.',
+      snippet: 'data class PlayerState(val isBuffering: Boolean = false, val currentTitle: String = "")'
     },
 
-    // Databases, Cloud & IT Ops
+    // Databases, IT Ops & Systems
     { 
       name: 'PostgreSQL & Supabase BaaS', 
       category: 'cloud', 
@@ -162,7 +176,8 @@ const Skills = () => {
       tier: 'Production', 
       icon: 'fas fa-server', 
       iconColor: '#3ecf8e',
-      detail: 'Row-Level Security (RLS), Trigger Functions, Realtime Telemetry, Indexing'
+      detail: 'Row-Level Security (RLS) policies, automated database triggers, realtime websocket subscriptions, and indexes.',
+      snippet: 'CREATE POLICY "Users access own records" ON orders FOR ALL USING (auth.uid() = user_id);'
     },
     { 
       name: 'Git, GitHub & Version Control', 
@@ -171,7 +186,8 @@ const Skills = () => {
       tier: 'Workflow', 
       icon: 'fab fa-git-alt', 
       iconColor: '#f05032',
-      detail: 'Branch Workflows, Release Tagging, Markdown Architecture Documentation'
+      detail: 'Git branch workflows, release tagging, automated lint checks, and markdown system architecture documentation.',
+      snippet: 'git commit -m "feat(stream): implement custom HLS adaptive bitrate listener"'
     },
     { 
       name: 'IT Infrastructure & Network Diagnostics', 
@@ -180,20 +196,52 @@ const Skills = () => {
       tier: 'Field Lead', 
       icon: 'fas fa-network-wired', 
       iconColor: '#38bdf8',
-      detail: 'Local LAN Troubleshooting, Hardware OS Setup, System Uptime Assurance'
+      detail: 'Local LAN routing, DNS troubleshooting, workstation setup, hardware diagnostics, and zero downtime assurance.',
+      snippet: 'netstat -tulnp | grep LISTEN; ping -c 4 gateway.internal;'
     },
     { 
-      name: 'Institutional Database Records Admin', 
+      name: 'Institutional Database Admin', 
       category: 'cloud', 
       level: 94, 
       tier: 'Enterprise', 
       icon: 'fas fa-users-gear', 
       iconColor: '#f59e0b',
-      detail: 'Managed 500+ Staff/Student Records, Streamlined Payroll Turnaround by 30%'
+      detail: 'Overhauled administrative database and payroll records for 500+ users, accelerating turnaround by ~30%.',
+      snippet: 'UPDATE payroll_ledger SET status = "PROCESSED" WHERE cycle_month = current_date;'
+    },
+
+    // AI & Velocity Tooling
+    { 
+      name: 'AI-Augmented Code Engineering', 
+      category: 'ai', 
+      level: 95, 
+      tier: 'AI-Powered', 
+      icon: 'fas fa-microchip', 
+      iconColor: '#00f5d4',
+      detail: 'Harnessing Claude, ChatGPT, and Copilot for rapid scaffolding, algorithmic problem solving, and instant refactoring.',
+      snippet: 'AI_CoPilot.scaffoldModule({ spec: "ExoPlayer bitstream listener", lang: "Kotlin" });'
+    },
+    { 
+      name: 'AI Query & Pipeline Optimization', 
+      category: 'ai', 
+      level: 94, 
+      tier: 'AI-Powered', 
+      icon: 'fas fa-wand-magic-sparkles', 
+      iconColor: '#ff6a1a',
+      detail: 'Using AI LLMs to analyze SQL query plans, uncover indexing bottlenecks, and optimize complex DAX formulas.',
+      snippet: 'EXPLAIN ANALYZE -> AI_Engine.suggestIndex({ costThreshold: 120ms });'
+    },
+    { 
+      name: 'Automated Testing & Documentation Scaffolding', 
+      category: 'ai', 
+      level: 90, 
+      tier: 'AI-Powered', 
+      icon: 'fas fa-robot', 
+      iconColor: '#f2c811',
+      detail: 'Scaffolding unit test suites, edge-case mocks, and architectural documentation at 3x normal development velocity.',
+      snippet: 'generateTestCases({ suite: "CheckoutOrderFlow", mocks: ["SupabaseClient"] });'
     }
   ];
-
-  const [searchQuery, setSearchQuery] = useState('');
 
   const filteredSkills = skillItems.filter(item => {
     const matchesCat = activeCategory === 'all' || item.category === activeCategory;
@@ -208,7 +256,7 @@ const Skills = () => {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && entry.target.classList.contains('skill-bar-fill')) {
+        if (entry.isIntersecting && entry.target.classList.contains('telemetry-bar-fill')) {
           entry.target.style.width = entry.target.dataset.width;
           observer.unobserve(entry.target);
         }
@@ -227,13 +275,13 @@ const Skills = () => {
         <div className="section-header-wrap">
           <div className="section-pill-tag">
             <i className="fas fa-microchip"></i>
-            <span>Engineering &amp; Analytics Stack</span>
+            <span>Engineering &amp; Analytics Matrix</span>
           </div>
           <h2 className="section-main-title">
             Core Competencies &amp; <span className="text-gradient-cyan">Technical Depth</span>
           </h2>
           <p className="section-main-subtitle">
-            A comprehensive, battle-tested skillset spanning full-stack web engineering, native mobile systems, and enterprise business intelligence.
+            A high-performance technical stack bridging full-stack web engineering, native Android TV systems, enterprise business intelligence, and AI-augmented development velocity.
           </p>
         </div>
 
@@ -256,30 +304,30 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Engineering Command Prompt Header */}
-        <div className="skills-terminal-bar">
-          <div className="terminal-bar-dots">
-            <span className="dot dot-red"></span>
-            <span className="dot dot-yellow"></span>
-            <span className="dot dot-green"></span>
+        {/* 2. 3D CYBER TELEMETRY COMMAND BAR */}
+        <div className="skills-telemetry-matrix-bar">
+          <div className="telemetry-hud-left">
+            <span className="telemetry-live-dot"></span>
+            <span className="telemetry-console-label">TELEMETRY DECK v3.0</span>
+            <span className="telemetry-sep">|</span>
+            <span className="telemetry-query-status">
+              ACTIVE SECTOR: <strong>{activeCategory.toUpperCase()}</strong> ({filteredSkills.length} MODULES LOADED)
+            </span>
           </div>
-          <div className="terminal-bar-text">
-            <span className="term-usr">rabius-sani@devbox</span>:<span className="term-path">~/skills</span>$&nbsp;
-            <span className="term-cmd">query_stack --discipline=&quot;{activeCategory}&quot; --status=active</span>
-            <span className="term-cursor">_</span>
-          </div>
-          <div className="terminal-bar-meta">
-            <span className="term-badge">ENGINEERING SPEC v2.6</span>
+          <div className="telemetry-hud-right">
+            <span className="telemetry-ai-tag">
+              <i className="fas fa-brain"></i> AI-AUGMENTED WORKFLOW ACTIVE
+            </span>
           </div>
         </div>
 
-        {/* 2. CATEGORY FILTER NAVIGATION BAR & LIVE SEARCH */}
+        {/* 3. CATEGORY SWITCHER & LIVE FILTER SEARCH */}
         <div className="skills-nav-row">
           <div className="skills-filter-nav">
             {skillCategories.map((cat) => (
               <button
                 key={cat.id}
-                className={`skills-cat-btn ${activeCategory === cat.id ? 'active' : ''}`}
+                className={`skills-cat-btn ${cat.id === 'ai' ? 'btn-cat-ai' : ''} ${activeCategory === cat.id ? 'active' : ''}`}
                 onClick={() => setActiveCategory(cat.id)}
               >
                 <i className={cat.icon}></i>
@@ -287,11 +335,12 @@ const Skills = () => {
               </button>
             ))}
           </div>
+
           <div className="skills-search-box">
             <i className="fas fa-magnifying-glass search-icon"></i>
             <input 
               type="text" 
-              placeholder="Search stack (e.g. react, sql, compose)..." 
+              placeholder="Search stack (e.g. react, sql, ai, kotlin)..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="skills-search-input"
@@ -303,52 +352,99 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* 3. INTERACTIVE 2-COLUMN SKILLS GRID */}
-        <div className="skills-cards-grid">
+        {/* 4. 3D ISOMETRIC TELEMETRY CARDS MATRIX */}
+        <div className="telemetry-matrix-grid">
           {filteredSkills.length === 0 ? (
             <div className="skills-empty-notice glass-panel">
               <i className="fas fa-filter-circle-xmark"></i>
-              <p>No skills matched &quot;{searchQuery}&quot;. Try searching &quot;React&quot;, &quot;SQL&quot;, &quot;Kotlin&quot;, or &quot;DAX&quot;.</p>
-              <button className="btn-secondary" onClick={() => setSearchQuery('')}>Reset Search</button>
+              <p>No competencies matched &quot;{searchQuery}&quot;. Try searching &quot;React&quot;, &quot;SQL&quot;, &quot;Kotlin&quot;, or &quot;AI&quot;.</p>
+              <button className="btn-secondary" onClick={() => setSearchQuery('')}>Reset Filter</button>
             </div>
           ) : (
             filteredSkills.map((skill, idx) => (
-              <div key={idx} className="skill-spec-card glass-panel">
-                <div className="skill-card-top-row">
-                  <div className="skill-title-cluster">
+              <div 
+                key={idx} 
+                className={`telemetry-card ${skill.category === 'ai' ? 'ai-glow-card' : ''}`}
+                onClick={() => setInspectedSkill(inspectedSkill?.name === skill.name ? null : skill)}
+              >
+                {/* 3D Isometric Card Inner */}
+                <div className="telemetry-card-inner glass-panel">
+                  
+                  {/* Cyber Top Scanline & Sector Tag */}
+                  <div className="telemetry-card-top">
+                    <div className="telemetry-badge-group">
+                      <span className="telemetry-cat-tag">
+                        SECTOR // {skill.category.toUpperCase()}
+                      </span>
+                      <span className={`telemetry-tier-tag tier-${skill.tier.toLowerCase().replace(/[^a-z]/g, '')}`}>
+                        {skill.tier}
+                      </span>
+                    </div>
+
+                    <span className="telemetry-pct">{skill.level}%</span>
+                  </div>
+
+                  {/* Main Title Cluster */}
+                  <div className="telemetry-title-cluster">
                     <div 
-                      className="skill-tech-icon"
+                      className="telemetry-icon-box"
                       style={{ color: skill.iconColor }}
                     >
                       <i className={skill.icon}></i>
                     </div>
                     <div>
-                      <h4 className="skill-title-text">{skill.name}</h4>
-                      <span className="skill-detail-sub">{skill.detail}</span>
+                      <h4 className="telemetry-skill-name">{skill.name}</h4>
+                      <p className="telemetry-skill-detail">{skill.detail}</p>
                     </div>
                   </div>
-                  <div className="skill-tier-badge">
-                    {skill.tier}
-                  </div>
-                </div>
 
-                {/* Progress Level Bar */}
-                <div className="skill-meter-wrap">
-                  <div className="skill-meter-track">
+                  {/* Progress Telemetry Meter */}
+                  <div className="telemetry-meter-row">
                     <div 
-                      className="skill-bar-fill"
-                      data-width={`${skill.level}%`}
-                      ref={(el) => (barsRef.current[idx] = el)}
-                    ></div>
+                      className="telemetry-meter-track"
+                      role="progressbar"
+                      aria-valuenow={skill.level}
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label={`${skill.name} proficiency level ${skill.level}%`}
+                    >
+                      <div 
+                        className="telemetry-bar-fill"
+                        data-width={`${skill.level}%`}
+                        ref={(el) => (barsRef.current[idx] = el)}
+                      ></div>
+                    </div>
+                    <button 
+                      className="btn-inspect-spec" 
+                      title="Inspect Architecture Spec / Snippet"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setInspectedSkill(inspectedSkill?.name === skill.name ? null : skill);
+                      }}
+                    >
+                      <i className="fas fa-terminal"></i>
+                      <span>{inspectedSkill?.name === skill.name ? 'Hide Spec' : 'Inspect'}</span>
+                    </button>
                   </div>
-                  <span className="skill-pct-label">{skill.level}%</span>
+
+                  {/* Collapsible Architecture Spec Micro-Terminal */}
+                  {inspectedSkill?.name === skill.name && (
+                    <div className="telemetry-snippet-drawer">
+                      <div className="snippet-header">
+                        <span className="snippet-dot"></span>
+                        <span className="snippet-title">spec_preview.{skill.category === 'web' ? 'ts' : skill.category === 'data' ? 'sql' : skill.category === 'mobile' ? 'kt' : 'sh'}</span>
+                      </div>
+                      <pre className="snippet-code"><code>{skill.snippet}</code></pre>
+                    </div>
+                  )}
+
                 </div>
               </div>
             ))
           )}
         </div>
 
-        {/* 4. BOTTOM ARCHITECTURE PILLARS SUMMARY */}
+        {/* 5. BOTTOM ARCHITECTURE PILLARS SUMMARY */}
         <div className="skills-footer-strip glass-panel">
           <div className="strip-item">
             <i className="fas fa-bolt text-gradient-ember"></i>
@@ -361,12 +457,12 @@ const Skills = () => {
           </div>
           <div className="strip-divider"></div>
           <div className="strip-item">
-            <i className="fas fa-chart-pie text-gradient-amber"></i>
-            <span><strong>Analytical Precision:</strong> Star schema modeling &amp; verified DAX calculations for decision clarity</span>
+            <i className="fas fa-brain text-gradient-amber"></i>
+            <span><strong>AI-Augmented Velocity:</strong> Supercharged development speed, algorithmic precision, and query optimization</span>
           </div>
         </div>
 
-        {/* 5. TOOLING & DEVOPS ECOSYSTEM CHIP CLOUD */}
+        {/* 6. TOOLING & DEVOPS ECOSYSTEM CHIP CLOUD */}
         <div className="auxiliary-tools-strip glass-panel">
           <div className="aux-header">
             <span className="aux-tag"><i className="fas fa-toolbox"></i> Ecosystem &amp; Utilities</span>
@@ -380,6 +476,7 @@ const Skills = () => {
               { name: 'Vite & Rolldown', icon: 'fas fa-bolt' },
               { name: 'Vercel Deployment', icon: 'fas fa-cloud-arrow-up' },
               { name: 'Supabase RLS & Auth', icon: 'fas fa-database' },
+              { name: 'Claude & Copilot AI', icon: 'fas fa-brain' },
               { name: 'Linux Bash CLI', icon: 'fas fa-terminal' },
               { name: 'Android Studio', icon: 'fab fa-android' },
               { name: 'Figma UI/UX', icon: 'fab fa-figma' },

@@ -52,7 +52,8 @@ const Footer = () => {
               target="_blank" 
               rel="noreferrer" 
               className="footer-social-link" 
-              title="GitHub"
+              title="GitHub Profile"
+              aria-label="Visit Rabius Sani's GitHub Profile"
             >
               <i className="fab fa-github"></i>
             </a>
@@ -61,14 +62,16 @@ const Footer = () => {
               target="_blank" 
               rel="noreferrer" 
               className="footer-social-link" 
-              title="LinkedIn"
+              title="LinkedIn Profile"
+              aria-label="Visit Rabius Sani's LinkedIn Profile"
             >
               <i className="fab fa-linkedin-in"></i>
             </a>
             <a 
               href="mailto:mohammad.rabius.sanii@gmail.com" 
               className="footer-social-link" 
-              title="Email"
+              title="Send Direct Email"
+              aria-label="Send Direct Email to Rabius Sani"
             >
               <i className="fas fa-envelope"></i>
             </a>

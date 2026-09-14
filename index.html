@@ -2,23 +2,171 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rabius Sani · Software Engineer & Data Analyst</title>
-    <meta name="description" content="Official Portfolio of Rabius Sani — Software Engineer, Data Analyst, and Creator of PichiTV & PichiTube. Specialized in Power BI, SQL, Full-Stack Web, and Android TV streaming applications." />
-    <meta name="keywords" content="Rabius Sani, Software Engineer, Data Analyst, PichiTV, PichiTube, Power BI, SQL, Full Stack, Android, Dhaka Bangladesh" />
     
-    <!-- Open Graph / Meta -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Rabius Sani · Software Engineer & Data Analyst" />
-    <meta property="og:description" content="Portfolio of Rabius Sani — Explore PichiTV, PichiTube, Full-Stack E-Commerce, and Enterprise Power BI Analytics." />
-    <meta property="og:image" content="/Images/1.jpg" />
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Primary Metadata -->
+    <title>Rabius Sani · Software Engineer &amp; Data Analyst | Android TV &amp; Full-Stack</title>
+    <meta name="title" content="Rabius Sani · Software Engineer &amp; Data Analyst | Android TV &amp; Full-Stack" />
+    <meta name="description" content="Official portfolio of Rabius Sani — Software Engineer &amp; Data Analyst in Dhaka. Creator of PichiTV, PichiTube, enterprise Power BI analytics, and full-stack web apps." />
+    <meta name="keywords" content="Rabius Sani, Software Engineer, Data Analyst, PichiTV, PichiTube, Power BI, SQL, Full Stack, Android TV, Kotlin, Dhaka Bangladesh, React 19" />
+    <meta name="author" content="Mohammad Rabius Sani" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#06080c" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://rabius-sani.vercel.app/" />
+
+    <!-- Favicon & PWA Webmanifest -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://rabius-sani.vercel.app/" />
+    <meta property="og:site_name" content="Rabius Sani Portfolio" />
+    <meta property="og:title" content="Rabius Sani · Software Engineer &amp; Data Analyst" />
+    <meta property="og:description" content="Explore flagship systems: PichiTV (Android TV Leanback), PichiTube (4K Jetpack Compose), Full-Stack E-Commerce, and Enterprise Power BI Analytics." />
+    <meta property="og:image" content="https://rabius-sani.vercel.app/Images/og-preview.jpg" />
+    <meta property="og:image:secure_url" content="https://rabius-sani.vercel.app/Images/og-preview.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Rabius Sani — Software Engineer &amp; Data Analyst Portfolio" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="profile:first_name" content="Mohammad Rabius" />
+    <meta property="profile:last_name" content="Sani" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://rabius-sani.vercel.app/" />
+    <meta name="twitter:title" content="Rabius Sani · Software Engineer &amp; Data Analyst" />
+    <meta name="twitter:description" content="Explore flagship systems: PichiTV (Android TV Leanback), PichiTube, Full-Stack E-Commerce, and Enterprise Power BI Analytics." />
+    <meta name="twitter:image" content="https://rabius-sani.vercel.app/Images/og-preview.jpg" />
+    <meta name="twitter:image:alt" content="Rabius Sani — Software Engineer &amp; Data Analyst Portfolio" />
+
+    <!-- Performance: Preload Critical Hero LCP Image -->
+    <link rel="preload" href="/Images/1.webp" as="image" type="image/webp" fetchpriority="high" />
+
+    <!-- Google Fonts: Preconnect & Fast Display Swap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome Icons (Non-blocking Asynchronous Load with NoScript Fallback) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    </noscript>
+
+    <!-- Schema.org JSON-LD Structured Data (Google Rich Results & Generative Engine Optimization) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://rabius-sani.vercel.app/#person",
+          "name": "Mohammad Rabius Sani",
+          "alternateName": "Rabius Sani",
+          "jobTitle": ["Software Engineer", "Data Analyst", "IT Specialist"],
+          "description": "Software Engineer & Data Analyst specializing in high-performance Android TV Leanback streaming, Full-Stack Web systems, and Enterprise Power BI analytics.",
+          "url": "https://rabius-sani.vercel.app/",
+          "image": "https://rabius-sani.vercel.app/Images/1.webp",
+          "email": "mailto:mohammad.rabius.sanii@gmail.com",
+          "telephone": "+8801774745666",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dhaka",
+            "postalCode": "1236",
+            "addressCountry": "BD"
+          },
+          "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Bachelor of Science in Software Engineering",
+            "award": "B.Sc. in Software Engineering (Class of 2022)"
+          },
+          "sameAs": [
+            "https://github.com/mohammad-rabius-sani",
+            "https://www.linkedin.com/in/mohammad-rabius-sani/"
+          ],
+          "knowsAbout": [
+            "Android TV Development",
+            "Google Media3 ExoPlayer",
+            "Kotlin",
+            "Jetpack Compose",
+            "React 19",
+            "TypeScript",
+            "Power BI",
+            "DAX",
+            "PostgreSQL",
+            "SQL & Relational Modeling",
+            "Star Schema Architecture",
+            "Vite",
+            "Three.js & WebGL"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://rabius-sani.vercel.app/#website",
+          "url": "https://rabius-sani.vercel.app/",
+          "name": "Rabius Sani Portfolio",
+          "publisher": {
+            "@id": "https://rabius-sani.vercel.app/#person"
+          }
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://rabius-sani.vercel.app/#webpage",
+          "url": "https://rabius-sani.vercel.app/",
+          "name": "Rabius Sani · Software Engineer & Data Analyst Portfolio",
+          "isPartOf": {
+            "@id": "https://rabius-sani.vercel.app/#website"
+          },
+          "about": {
+            "@id": "https://rabius-sani.vercel.app/#person"
+          },
+          "mainEntity": {
+            "@id": "https://rabius-sani.vercel.app/#person"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "PichiTV — Ultimate Entertainment Hub",
+          "operatingSystem": "Android TV, Android",
+          "applicationCategory": "MultimediaApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": {
+            "@id": "https://rabius-sani.vercel.app/#person"
+          },
+          "description": "A native Android TV Leanback & mobile IPTV streaming engine delivering 1,500+ live satellite channels, 6 live sports hubs, and 25,000+ cinema movies with 0ms in-session caching and Google Media3 ExoPlayer.",
+          "downloadUrl": "https://github.com/mohammad-rabius-sani/PichiPie_Tv_Apk-Only"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "PichiTube — Ad-Free YouTube Client",
+          "operatingSystem": "Android",
+          "applicationCategory": "MultimediaApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": {
+            "@id": "https://rabius-sani.vercel.app/#person"
+          },
+          "description": "Lightweight & privacy-focused Android video streaming client built with Jetpack Compose, featuring 100% ad-free streams, SponsorBlock auto-skip, 4K UHD MergingMediaSource playback, and zero telemetry.",
+          "downloadUrl": "https://github.com/mohammad-rabius-sani/PichiTube"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

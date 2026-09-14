@@ -62,7 +62,7 @@ const Contact = () => {
       } else {
         setSubmitError(result.message || 'Submission error. Please email directly.');
       }
-    } catch (err) {
+    } catch {
       setSubmitError('Network failure. Please contact directly via email or phone.');
     } finally {
       setIsSubmitting(false);

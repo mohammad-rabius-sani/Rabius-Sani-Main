@@ -1,0 +1,17 @@
+{
+  "name": "Rabius Sani — Software Engineer & Data Analyst",
+  "short_name": "Rabius Sani",
+  "description": "Official Portfolio of Rabius Sani — Software Engineer, Data Analyst, and Creator of PichiTV & PichiTube.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#06080c",
+  "theme_color": "#06080c",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

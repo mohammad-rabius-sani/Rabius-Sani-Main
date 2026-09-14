@@ -1,0 +1,57 @@
+# Rabius Sani — Complete Technical Dossier & Architecture Specifications
+
+## Metadata
+- Name: Mohammad Rabius Sani
+- Canonical URL: https://rabius-sani.vercel.app/
+- Title: Software Engineer & Data Analyst
+- Contact: mohammad.rabius.sanii@gmail.com | +880 1774-745666
+- Primary Profiles:
+  - GitHub: https://github.com/mohammad-rabius-sani
+  - LinkedIn: https://www.linkedin.com/in/mohammad-rabius-sani/
+- Degrees: Bachelor of Science (B.Sc.) in Software Engineering (Class of 2022)
+- Certifications:
+  - HDNB Data Analytics Career Bootcamp
+  - Relational Database & SQL Specialization (PostgreSQL)
+  - UI/UX Interface Architecture
+  - Web Engineering & E-Commerce Systems
+
+## Engineering Disciplines
+
+### 1. Mobile & Media Systems (Android TV & Kotlin)
+- **Specialization**: D-pad navigation ergonomics, low-latency video streaming, adaptive bitrate HLS pipelines, and memory optimization on low-end embedded hardware.
+- **Architectures**:
+  - Model-View-Intent (MVI) and Clean Architecture with decoupled state machines.
+  - Google Media3 ExoPlayer integration for hardware-accelerated playback of MPEG-DASH and HLS (M3U8) streams.
+  - Multi-threaded pagination and in-memory LRU caching achieving 0ms navigation delays across 25,000+ media entries.
+  - MergingMediaSource audio/video multiplexing for 4K UHD video rendering.
+  - Zero-telemetry offline-first architecture using Room DB and SQLite for user privacy.
+
+### 2. Full-Stack Web Engineering
+- **Specialization**: React 19 architecture, component modularity, performance budgeting, responsive glassmorphic interfaces, and cloud-native databases.
+- **Architectures**:
+  - React 19 / TypeScript / Vite build pipeline with sub-second HMR and tree-shaken chunk splitting.
+  - Supabase Cloud PostgreSQL with automated trigger functions for default SKU variant provisioning.
+  - Row Level Security (RLS) enforcement protecting relational entities at the database layer.
+  - WebGL / Three.js 3D rendering optimized with visibility state detection and hardware acceleration.
+
+### 3. Business Intelligence & Enterprise Analytics
+- **Specialization**: Relational database architecture, Star Schema modeling, advanced DAX time intelligence, and automated reporting pipelines.
+- **Architectures**:
+  - Star schema design isolating fact tables (orders, revenue, returns) from dimension tables (customers, products, calendar, regions).
+  - 24+ custom DAX measures for Year-over-Year (YoY) velocity, rolling moving averages, margin contribution, and dynamic threshold anomaly detection.
+  - Relational PostgreSQL data pipelines leveraging recursive Common Table Expressions (CTEs), multi-table joins, and window functions (DENSE_RANK, ROW_NUMBER, LAG/LEAD).
+  - Automation of manual payroll and reporting pipelines reducing turnaround times by ~30% for 500+ institutional records.
+
+## Career Chronology
+1. **Web Architect & Full-Stack Systems Engineer (Independent & Freelance)**
+   - Period: 2023 – Present
+   - Scope: Independent ownership of web platform deployments, custom client portals, and IT systems consultation across local Bangladesh and international clients.
+2. **Database & Operations Systems Specialist (Institutional Systems & Records Modernization)**
+   - Period: 2024 – 2025
+   - Scope: Database administration, payroll reporting pipeline overhaul, schema normalization, and user administration for 500+ stakeholders.
+3. **Teaching Specialist & STEM Mentor (Academic Mentorship & Analytical Pedagogy)**
+   - Period: 2020 – 2023
+   - Scope: Instruction in Mathematics, Science, and ICT; mentored student to achieve 1st rank in the competitive Bangladesh Government Scholarship Examination.
+
+## Verification & Accuracy Statement
+All project repositories, code snippets, APK artifacts, and DAX calculations described herein are publicly verified on GitHub at https://github.com/mohammad-rabius-sani.

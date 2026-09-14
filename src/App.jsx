@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import GlobalBackground3D from './components/GlobalBackground3D';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import CursorGlow from './components/CursorGlow';
 import FloatingBackToTop from './components/FloatingBackToTop';
 import Navbar from './components/Navbar';
@@ -12,7 +11,13 @@ import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
+// Dynamic Code Splitting for Three.js and Heavy Overlays
+const GlobalBackground3D = lazy(() => import('./components/GlobalBackground3D'));
+const ResumeModal = lazy(() => import('./components/ResumeModal'));
+
 function App() {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+
   // Intersection Observer for scroll animations
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,16 +41,23 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Unified 2026 Three.js 3D Background Spanning All Sections */}
-      <GlobalBackground3D />
+      {/* Keyboard Accessibility Skip Link */}
+      <a href="#hero" className="skip-to-content">
+        Skip to main content
+      </a>
+
+      {/* Dynamic Three.js 3D Background with Graceful Fallback */}
+      <Suspense fallback={<div className="bg-fallback-mesh" />}>
+        <GlobalBackground3D />
+      </Suspense>
 
       {/* Hardware-Accelerated Ambient Cursor Spotlight */}
       <CursorGlow />
 
-      <Navbar />
+      <Navbar onOpenResume={() => setIsResumeOpen(true)} />
 
       <main>
-        <Hero />
+        <Hero onOpenResume={() => setIsResumeOpen(true)} />
         <SectionDivider index="01" label="ABOUT & PHILOSOPHY" accent="ember" />
         <About />
         <SectionDivider index="02" label="CORE STACK & EXPERTISE" accent="cyan" />
@@ -62,6 +74,11 @@ function App() {
 
       {/* Floating Back to Top Button */}
       <FloatingBackToTop />
+
+      {/* In-Browser Curriculum Vitae Viewer Modal (Code Split) */}
+      <Suspense fallback={null}>
+        <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
+      </Suspense>
     </div>
   );
 }

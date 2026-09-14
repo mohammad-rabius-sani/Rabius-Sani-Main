@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ onOpenResume }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -45,7 +45,12 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleCvDownload = () => {
+  const handleCvClick = (e) => {
+    if (onOpenResume) {
+      e.preventDefault();
+      onOpenResume();
+      return;
+    }
     confetti({
       particleCount: 80,
       spread: 70,
@@ -130,24 +135,25 @@ const Navbar = () => {
             <i className="fab fa-github"></i>
           </a>
 
-          {/* Resume PDF Download */}
-          <a 
-            href="/Mohammad_Rabius_Sani_CV.pdf" 
-            download="Mohammad_Rabius_Sani_CV.pdf"
+          {/* Resume In-Browser View / Download */}
+          <button 
+            type="button"
             className="btn-cv-pill"
-            onClick={handleCvDownload}
-            title="Download Official Resume PDF"
+            onClick={handleCvClick}
+            title="Preview Official Resume PDF"
           >
-            <i className="fas fa-file-arrow-down"></i>
+            <i className="fas fa-file-pdf"></i>
             <span>Resume</span>
-          </a>
+          </button>
 
           {/* Mobile Hamburger Toggle */}
           <button 
             type="button"
             className={`mobile-toggle-btn ${mobileMenuOpen ? 'is-open' : ''}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Menu"
+            aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav-drawer"
           >
             <span></span>
             <span></span>
@@ -158,7 +164,11 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Drawer Menu */}
-      <div className={`mobile-menu-drawer ${mobileMenuOpen ? 'is-visible' : ''}`}>
+      <div 
+        id="mobile-nav-drawer"
+        className={`mobile-menu-drawer ${mobileMenuOpen ? 'is-visible' : ''}`}
+        aria-hidden={!mobileMenuOpen}
+      >
         <div className="mobile-drawer-content glass-panel">
           
           {/* Mobile Theme Toggle Row */}
@@ -198,17 +208,20 @@ const Navbar = () => {
           </a>
           
           <div className="mobile-cv-wrap">
-            <a 
-              href="/Mohammad_Rabius_Sani_CV.pdf" 
-              download="Mohammad_Rabius_Sani_CV.pdf"
+            <button 
+              type="button"
               className="btn-primary mobile-cv-btn"
               onClick={() => {
-                handleCvDownload();
                 closeMobileMenu();
+                if (onOpenResume) {
+                  onOpenResume();
+                } else {
+                  handleCvClick();
+                }
               }}
             >
-              <i className="fas fa-download"></i> Download Full CV (PDF)
-            </a>
+              <i className="fas fa-file-pdf"></i> Preview Full CV (In-Browser)
+            </button>
           </div>
         </div>
       </div>

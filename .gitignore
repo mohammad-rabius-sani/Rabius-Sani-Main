@@ -37,4 +37,5 @@ lerna-debug.log*
 .gemini/
 temp_ref/
 .playwright-mcp/
+.vercel
 

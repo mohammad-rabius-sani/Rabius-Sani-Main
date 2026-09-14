@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import './About.css';
 
 const About = () => {
-  const [selectedPhoto, setSelectedPhoto] = useState('/Images/1.jpg');
+  const [selectedPhoto, setSelectedPhoto] = useState('/Images/1.webp');
   const [copiedField, setCopiedField] = useState(null);
 
   const photos = [
-    { src: '/Images/1.jpg', label: 'Studio' },
-    { src: '/Images/2.jpg', label: 'Editorial' },
-    { src: '/Images/3.jpg', label: 'Portrait' },
-    { src: '/Images/4.jpg', label: 'Outdoor' }
+    { src: '/Images/1.webp', label: 'Studio' },
+    { src: '/Images/2.webp', label: 'Editorial' },
+    { src: '/Images/3.webp', label: 'Portrait' },
+    { src: '/Images/4.webp', label: 'Outdoor' }
   ];
 
   const copyToClipboard = (text, field) => {
@@ -89,8 +89,12 @@ const About = () => {
             <div className="gallery-main-view">
               <img 
                 src={selectedPhoto} 
-                alt="Rabius Sani" 
+                alt="Rabius Sani — Software Engineer &amp; Data Analyst" 
                 className="gallery-active-img"
+                loading="lazy"
+                decoding="async"
+                width="480"
+                height="580"
               />
               <div className="gallery-gradient-overlay"></div>
               <div className="gallery-caption">
@@ -106,9 +110,16 @@ const About = () => {
                   key={idx}
                   className={`thumb-btn ${selectedPhoto === p.src ? 'active' : ''}`}
                   onClick={() => setSelectedPhoto(p.src)}
-                  title={`View ${p.label}`}
+                  title={`View ${p.label} portrait`}
                 >
-                  <img src={p.src} alt={p.label} />
+                  <img 
+                    src={p.src} 
+                    alt={`Rabius Sani ${p.label}`} 
+                    loading="lazy"
+                    decoding="async"
+                    width="64"
+                    height="64"
+                  />
                   <span>{p.label}</span>
                 </button>
               ))}
@@ -220,39 +231,44 @@ const About = () => {
 
         </div>
 
-        {/* Engineering Philosophy & Principles Strip */}
+        {/* Engineering Philosophy & 4-Step Lifecycle */}
         <div className="about-principles-strip glass-panel">
           <div className="principles-title-col">
-            <span className="principles-badge"><i className="fas fa-microchip"></i> Engineering Code</span>
+            <span className="principles-badge"><i className="fas fa-cubes-stacked"></i> Engineering Lifecycle</span>
             <h4 className="principles-heading">How I Think &amp; Build</h4>
+            <span className="principles-subtext">From initial domain discovery to privacy-hardened production deployment.</span>
           </div>
           <div className="principles-grid">
             <div className="principle-item">
-              <span className="principle-icon ember-text"><i className="fas fa-gauge-high"></i></span>
+              <span className="principle-step-num">01</span>
+              <span className="principle-icon ember-text"><i className="fas fa-clipboard-question"></i></span>
               <div className="principle-content">
-                <strong>0ms Latency &amp; Memory Safety</strong>
-                <p>Strict memory management, zero leaks, and instant in-session caching on low-spec hardware.</p>
+                <strong>Gather Info &amp; Discovery</strong>
+                <p>Deep requirement gathering, mapping data flows, stakeholder inquiry, and uncovering root pain points before touching code.</p>
               </div>
             </div>
             <div className="principle-item">
-              <span className="principle-icon cyan-text"><i className="fas fa-project-diagram"></i></span>
+              <span className="principle-step-num">02</span>
+              <span className="principle-icon cyan-text"><i className="fas fa-compass-drafting"></i></span>
               <div className="principle-content">
-                <strong>Clean Unidirectional MVI</strong>
-                <p>Predictable state flows, single source of truth, and immutable UI rendering patterns.</p>
+                <strong>UI/UX &amp; Architecture</strong>
+                <p>Ergonomic interfaces: Leanback D-pad TV navigation, fluid responsive web flows, decoupled state machines, and clean schemas.</p>
               </div>
             </div>
             <div className="principle-item">
-              <span className="principle-icon amber-text"><i className="fas fa-chart-pie"></i></span>
+              <span className="principle-step-num">03</span>
+              <span className="principle-icon amber-text"><i className="fas fa-wand-magic-sparkles"></i></span>
               <div className="principle-content">
-                <strong>Verified Star-Schema DAX</strong>
-                <p>Denormalized dimension tables, robust relationships, and auditable measures.</p>
+                <strong>Build &amp; AI-Augmented Velocity</strong>
+                <p>Writing robust code in Kotlin, React &amp; SQL, leveraging modern AI to accelerate development, optimize queries, and scaffold systems.</p>
               </div>
             </div>
             <div className="principle-item">
+              <span className="principle-step-num">04</span>
               <span className="principle-icon green-text"><i className="fas fa-shield-halved"></i></span>
               <div className="principle-content">
-                <strong>Zero Telemetry &amp; Privacy</strong>
-                <p>Local SQLite storage, zero tracking bloat, and defensive Row-Level Security.</p>
+                <strong>Test &amp; Strict Privacy Focus</strong>
+                <p>Stress testing, edge-case audits, and uncompromising privacy: zero unwanted telemetry, zero tracking, and offline-first Room/SQLite storage.</p>
               </div>
             </div>
           </div>

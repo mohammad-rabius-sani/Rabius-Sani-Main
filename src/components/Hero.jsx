@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import './Hero.css';
 
-const Hero = () => {
+const Hero = ({ onOpenResume }) => {
   const [hudTab, setHudTab] = useState('profile'); // 'profile' | 'code'
   const [dhakaTime, setDhakaTime] = useState('');
-  const [copiedStatus, setCopiedStatus] = useState('');
 
   useEffect(() => {
     const updateTime = () => {
@@ -19,7 +18,7 @@ const Hero = () => {
           hour12: true
         }).format(now);
         setDhakaTime(formatted);
-      } catch (e) {
+      } catch {
         setDhakaTime('');
       }
     };
@@ -37,12 +36,6 @@ const Hero = () => {
     });
   };
 
-  const copyContact = (text, type) => {
-    navigator.clipboard.writeText(text);
-    setCopiedStatus(type);
-    setTimeout(() => setCopiedStatus(''), 2200);
-  };
-
   return (
     <section id="hero" className="hero-section">
       
@@ -58,7 +51,7 @@ const Hero = () => {
             {/* Live Availability Status Pill with Live Dhaka Time */}
             <div className="hero-status-pill">
               <span className="pulse-dot"></span>
-              <span className="status-copy">Available for Software Engineering &amp; Data Roles</span>
+              <span className="status-copy">Available for SWE, Data &amp; IT Roles</span>
               <span className="status-divider">·</span>
               <span className="status-time">
                 <i className="far fa-clock"></i> Dhaka (UTC+6): {dhakaTime || 'Active'}
@@ -70,98 +63,65 @@ const Hero = () => {
               <span className="hero-greet-line">Hello, I'm</span>
               <span className="hero-name-highlight text-gradient-ember">Rabius Sani</span>
               <span className="hero-punch-tagline">
-                Software Engineer &amp; Data Analyst.
+                Software Engineer · Data Analyst · IT Specialist
               </span>
             </h1>
 
             {/* Human, Versatile Engineering Narrative */}
             <p className="hero-lead-text">
-              I design and develop high-performance software systems, modern full-stack web applications, and data-driven intelligence solutions. Dedicated to clean architecture, scalable code, and delivering impactful digital products that solve real-world problems.
+              I design and engineer high-performance software systems, native Android platforms, and decision-grade data architectures. Fusing clean software patterns with modern AI co-pilots, I build fast, scalable, and resilient digital solutions that eliminate operational bottlenecks.
             </p>
 
-            {/* Live Developer Shell Prompt (Engineering Signature) */}
-            <div className="hero-terminal-strip">
-              <div className="terminal-prompt-row">
-                <span className="terminal-user">rabius-sani@devbox</span>
-                <span className="terminal-sep">:</span>
-                <span className="terminal-dir">~/portfolio</span>
-                <span className="terminal-git">(main)</span>
-                <span className="terminal-symbol">$</span>
-                <span className="terminal-cmd-text">sys.info --stack=prod</span>
-              </div>
-              <div className="terminal-output-row">
-                <span className="term-tag tag-ok">● STATUS: READY</span>
-                <span className="term-tag tag-stack">REACT 18 · KOTLIN · POSTGRESQL · POWER BI</span>
-                <span className="term-tag tag-cache">LATENCY: &lt;10ms</span>
-              </div>
-            </div>
+            {/* Clean, Focused Action Buttons - Prominently Above the Fold */}
+            <div className="hero-action-buttons">
+              <a href="#projects" className="btn-primary hero-cta-btn">
+                <i className="fas fa-rocket"></i>
+                <span>Explore Works</span>
+              </a>
 
-            {/* Quick Tech Jump Pills */}
-            <div className="hero-quick-chips">
-              <span className="quick-chips-label"><i className="fas fa-bolt"></i> Quick Jump:</span>
-              <a href="#projects" className="quick-chip chip-android"><i className="fab fa-android"></i> Android TV &amp; Kotlin</a>
-              <a href="#projects" className="quick-chip chip-react"><i className="fab fa-react"></i> React 18 &amp; TS</a>
-              <a href="#projects" className="quick-chip chip-bi"><i className="fas fa-chart-pie"></i> Power BI &amp; DAX</a>
-              <a href="#projects" className="quick-chip chip-sql"><i className="fas fa-database"></i> PostgreSQL &amp; SQL</a>
+              <button 
+                type="button"
+                className="btn-secondary hero-resume-btn"
+                onClick={() => {
+                  if (onOpenResume) {
+                    onOpenResume();
+                  } else {
+                    handleCvDownload();
+                  }
+                }}
+                title="Preview Official Curriculum Vitae (In-Browser PDF)"
+              >
+                <i className="fas fa-file-pdf"></i>
+                <span>View CV / Resume</span>
+              </button>
+
+              <a href="#contact" className="btn-outline-talk">
+                <span>Let's Talk</span>
+                <i className="fas fa-arrow-right"></i>
+              </a>
             </div>
 
             {/* Balanced Engineering Metrics Strip */}
             <div className="hero-metrics-strip">
               <div className="hero-metric-item">
                 <span className="metric-number text-gradient-ember">3+</span>
-                <span className="metric-text">Years Building &amp; Ops</span>
+                <span className="metric-text">Years Experience</span>
               </div>
               <div className="hero-metric-separator"></div>
               <div className="hero-metric-item">
                 <span className="metric-number text-gradient-cyan">100%</span>
-                <span className="metric-text">Production Code Delivery</span>
+                <span className="metric-text">Production Code</span>
               </div>
               <div className="hero-metric-separator"></div>
               <div className="hero-metric-item">
                 <span className="metric-number text-gradient-amber">5,900+</span>
-                <span className="metric-text">BI Records Modeled</span>
+                <span className="metric-text">BI Records</span>
               </div>
               <div className="hero-metric-separator"></div>
               <div className="hero-metric-item">
-                <span className="metric-number text-gradient-cyan">18+</span>
-                <span className="metric-text">Public Repositories</span>
+                <span className="metric-number text-gradient-cyan">Global</span>
+                <span className="metric-text">Local &amp; Remote</span>
               </div>
-            </div>
-
-            {/* Call to Actions (With Direct New-Tab GitHub Option) */}
-            <div className="hero-action-buttons">
-              <a href="#projects" className="btn-primary hero-cta-btn">
-                <span>Explore Projects</span>
-                <i className="fas fa-arrow-down"></i>
-              </a>
-
-              {/* Direct GitHub Option (Opens in New Tab) */}
-              <a 
-                href="https://github.com/mohammad-rabius-sani?tab=repositories" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="btn-hero-github"
-                title="Explore All Repositories on GitHub (Opens in New Tab)"
-              >
-                <i className="fab fa-github"></i>
-                <span>More on GitHub</span>
-                <i className="fas fa-arrow-up-right-from-square"></i>
-              </a>
-
-              <a 
-                href="/Mohammad_Rabius_Sani_CV.pdf" 
-                download="Mohammad_Rabius_Sani_CV.pdf" 
-                className="btn-secondary hero-resume-btn"
-                onClick={handleCvDownload}
-                title="Download Official PDF Resume"
-              >
-                <i className="fas fa-file-arrow-down"></i>
-                <span>Resume</span>
-              </a>
-
-              <a href="#contact" className="btn-outline-talk">
-                <span>Let's Talk</span>
-              </a>
             </div>
 
             {/* Quick Connect Social Strip */}
@@ -236,10 +196,14 @@ const Hero = () => {
                 <>
                   <div className="card-photo-container">
                     <img 
-                      src="/Images/1.jpg" 
-                      alt="Rabius Sani" 
+                      src="/Images/1.webp" 
+                      alt="Rabius Sani — Software Engineer &amp; Data Analyst Portrait" 
                       className="card-portrait-img"
                       loading="eager"
+                      fetchpriority="high"
+                      decoding="async"
+                      width="340"
+                      height="420"
                     />
                     <div className="card-photo-gradient"></div>
                     
@@ -258,20 +222,20 @@ const Hero = () => {
                     {/* Floating Micro-Chip */}
                     <div className="photo-floating-chip">
                       <i className="fas fa-terminal"></i>
-                      <span>Full-Stack &amp; Data</span>
+                      <span>SWE · Data · IT</span>
                     </div>
                   </div>
 
                   <div className="card-bottom-info">
                     <div className="card-dev-name">Rabius Sani</div>
-                    <div className="card-dev-title">Software Engineer &amp; Data Analyst</div>
+                    <div className="card-dev-title">Software Engineer · Data Analyst · IT</div>
                     <div className="card-dev-tags">
-                      <span>React 18</span>
+                      <span>React 19</span>
                       <span>TypeScript</span>
                       <span>Kotlin</span>
                       <span>Power BI</span>
                       <span>PostgreSQL</span>
-                      <span>Python</span>
+                      <span>AI Tools</span>
                     </div>
                   </div>
                 </>
@@ -287,14 +251,15 @@ const Hero = () => {
                   <div className="terminal-body">
                     <p className="t-line"><span className="t-prompt">const</span> <span className="t-cyan">engineer</span> = &#123;</p>
                     <p className="t-line t-indent"><span className="t-amber">name</span>: <span className="t-green">'Rabius Sani'</span>,</p>
-                    <p className="t-line t-indent"><span className="t-amber">role</span>: <span className="t-green">'Software Engineer &amp; Data Analyst'</span>,</p>
+                    <p className="t-line t-indent"><span className="t-amber">role</span>: <span className="t-green">'Software Engineer · Data Analyst · IT'</span>,</p>
                     <p className="t-line t-indent"><span className="t-amber">domains</span>: [</p>
-                    <p className="t-line t-indent-2"><span className="t-green">'Full-Stack Web'</span>,</p>
-                    <p className="t-line t-indent-2"><span className="t-green">'Native Mobile Systems'</span>,</p>
-                    <p className="t-line t-indent-2"><span className="t-green">'Enterprise BI &amp; SQL'</span></p>
+                    <p className="t-line t-indent-2"><span className="t-green">'Full-Stack Web Systems'</span>,</p>
+                    <p className="t-line t-indent-2"><span className="t-green">'Native Mobile &amp; IPTV'</span>,</p>
+                    <p className="t-line t-indent-2"><span className="t-green">'Enterprise BI &amp; SQL'</span>,</p>
+                    <p className="t-line t-indent-2"><span className="t-green">'AI-Augmented Architecture'</span></p>
                     <p className="t-line t-indent">],</p>
-                    <p className="t-line t-indent"><span className="t-amber">status</span>: <span className="t-cyan">'Open for impactful roles'</span>,</p>
-                    <p className="t-line t-indent"><span className="t-amber">relocation</span>: <span className="t-green">'Remote / Hybrid / On-Site'</span></p>
+                    <p className="t-line t-indent"><span className="t-amber">status</span>: <span className="t-cyan">'Open for high-impact roles'</span>,</p>
+                    <p className="t-line t-indent"><span className="t-amber">methodology</span>: <span className="t-green">'AI-Assisted Fast Delivery'</span></p>
                     <p className="t-line">&#125;;</p>
                     <p className="t-cursor-line"><span className="t-prompt">&gt;</span> <span className="t-blink">readyToDeploy()</span></p>
                   </div>

@@ -1,0 +1,35 @@
+# ==============================================================================
+# Robots.txt for Rabius Sani's Portfolio (https://rabius-sani.vercel.app/)
+# Allows full crawling by standard search engines and AI knowledge engines
+# ==============================================================================
+
+User-agent: *
+Allow: /
+
+# Explicit AI Search Engine & Knowledge Crawler Directives (GEO Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Canonical Sitemap
+Sitemap: https://rabius-sani.vercel.app/sitemap.xml

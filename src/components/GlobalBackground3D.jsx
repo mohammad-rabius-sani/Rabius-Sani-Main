@@ -292,12 +292,16 @@ const GlobalBackground3D = () => {
     themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 
     // =========================================================================
-    // ANIMATION RENDER LOOP (60FPS FLUID GLIDE)
+    // =========================================================================
+    // ANIMATION RENDER LOOP (60FPS FLUID GLIDE WITH TAB-SUSPEND OPTIMIZATION)
     // =========================================================================
     let animationFrameId;
     const clock = new THREE.Clock();
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let isTabVisible = !document.hidden;
 
     const animate = () => {
+      if (!isTabVisible) return;
       animationFrameId = requestAnimationFrame(animate);
 
       const elapsedTime = clock.getElapsedTime();
@@ -313,25 +317,27 @@ const GlobalBackground3D = () => {
       camera.rotation.y = -currentMouse.x * 0.08 + currentScrollPercent * 0.4;
       camera.rotation.x = -currentMouse.y * 0.06 - currentScrollPercent * 0.15;
 
-      // 2. Procedural Wave Undulation
-      const pos = waveGeometry.attributes.position;
-      const pointsPos = wavePointsGeo.attributes.position;
-      const t = elapsedTime * 0.32;
+      // 2. Procedural Wave Undulation (Throttled if reduced-motion preferred)
+      if (!prefersReducedMotion) {
+        const pos = waveGeometry.attributes.position;
+        const pointsPos = wavePointsGeo.attributes.position;
+        const t = elapsedTime * 0.32;
 
-      for (let i = 0; i < pos.count; i++) {
-        const u = pos.getX(i);
-        const v = pos.getY(i);
-        // Harmonic trigonometric multi-wave
-        const z =
-          Math.sin(u * 0.07 + t) * 3.2 +
-          Math.cos(v * 0.05 + t * 0.75) * 2.5 +
-          Math.sin((u + v) * 0.04 + t * 0.5) * 1.8;
+        for (let i = 0; i < pos.count; i++) {
+          const u = pos.getX(i);
+          const v = pos.getY(i);
+          // Harmonic trigonometric multi-wave
+          const z =
+            Math.sin(u * 0.07 + t) * 3.2 +
+            Math.cos(v * 0.05 + t * 0.75) * 2.5 +
+            Math.sin((u + v) * 0.04 + t * 0.5) * 1.8;
 
-        pos.setZ(i, z);
-        pointsPos.setZ(i, z);
+          pos.setZ(i, z);
+          pointsPos.setZ(i, z);
+        }
+        pos.needsUpdate = true;
+        pointsPos.needsUpdate = true;
       }
-      pos.needsUpdate = true;
-      pointsPos.needsUpdate = true;
 
       // Wave Parallax Translation
       waveMesh.position.y = -13 + currentScrollPercent * 6;
@@ -358,6 +364,17 @@ const GlobalBackground3D = () => {
       renderer.render(scene, camera);
     };
 
+    const handleVisibilityChange = () => {
+      isTabVisible = !document.hidden;
+      if (isTabVisible) {
+        clock.start();
+        animate();
+      } else {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
     animate();
 
     // =========================================================================
@@ -365,6 +382,7 @@ const GlobalBackground3D = () => {
     // =========================================================================
     return () => {
       cancelAnimationFrame(animationFrameId);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);

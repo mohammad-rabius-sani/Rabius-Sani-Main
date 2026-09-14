@@ -468,7 +468,7 @@
   color: #0f172a;
 }
 
-/* ================= PRINCIPLES STRIP ================= */
+/* ================= PRINCIPLES & LIFECYCLE STRIP ================= */
 .about-principles-strip {
   margin-top: 24px;
   padding: 24px 32px;
@@ -476,6 +476,8 @@
   align-items: center;
   gap: 36px;
   border-radius: var(--radius-lg);
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-hairline);
 }
 
 .principles-title-col {
@@ -483,6 +485,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  max-width: 240px;
 }
 
 .principles-badge {
@@ -498,10 +501,17 @@
 }
 
 .principles-heading {
-  font-size: 1.18rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 800;
   color: var(--text-primary);
-  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.principles-subtext {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-top: 2px;
 }
 
 .principles-grid {
@@ -515,10 +525,25 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
+  position: relative;
+}
+
+.principle-step-num {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  opacity: 0.7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-hairline);
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .principle-icon {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   margin-top: 2px;
   flex-shrink: 0;
 }
@@ -530,7 +555,7 @@
 
 .principle-content strong {
   display: block;
-  font-size: 0.84rem;
+  font-size: 0.86rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 3px;
@@ -541,6 +566,18 @@
   line-height: 1.45;
   color: var(--text-muted);
   margin: 0;
+}
+
+[data-theme="light"] .about-principles-strip {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.1);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .principle-step-num {
+  background: #f1f5f9;
+  border-color: rgba(15, 23, 42, 0.08);
+  color: #64748b;
 }
 
 @media (max-width: 1100px) {

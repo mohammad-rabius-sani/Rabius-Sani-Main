@@ -73,21 +73,243 @@
   border: 1px solid var(--border-hairline);
   overflow: hidden;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.3s ease,
-              box-shadow 0.35s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.4s ease;
   transform: translateZ(0);
-  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  perspective: 1200px;
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-8px) rotateX(1.8deg);
   border-color: rgba(255, 106, 26, 0.45);
-  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.65), 0 0 30px rgba(255, 106, 26, 0.15);
+  box-shadow: 0 26px 65px rgba(0, 0, 0, 0.65), 0 0 35px rgba(255, 106, 26, 0.15);
 }
 
 .flagship-card .project-card {
   border-color: rgba(255, 106, 26, 0.28);
+}
+
+/* ================= SPATIAL 3D HARDWARE CHROME BARS ================= */
+.device-hardware-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
+  background: rgba(8, 11, 18, 0.95);
+  border-bottom: 1px solid var(--border-hairline);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  z-index: 2;
+  position: relative;
+}
+
+/* TV Hardware Chassis */
+.tv-hardware-indicators {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tv-power-led {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  animation: pulseSubtle 2s infinite;
+}
+
+.tv-ir-sensor {
+  width: 14px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.tv-os-label {
+  font-weight: 700;
+  color: var(--accent-ember);
+  letter-spacing: 0.5px;
+}
+
+.tv-res-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(255, 106, 26, 0.15);
+  color: var(--accent-ember);
+  border: 1px solid rgba(255, 106, 26, 0.3);
+}
+
+/* Mobile Phone Island */
+.mobile-island-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.island-camera {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0284c7;
+  box-shadow: 0 0 4px #0284c7;
+}
+
+.island-speaker {
+  width: 16px;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.mobile-status-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--accent-sports);
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.4px;
+}
+
+/* Browser Window Shell */
+.browser-traffic-lights {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.browser-traffic-lights .light {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.light-red { background: #ff5f56; }
+.light-yellow { background: #ffbd2e; }
+.light-green { background: #27c93f; }
+
+.browser-url-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 12px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.browser-url-pill i {
+  color: var(--accent-cyan);
+  font-size: 0.62rem;
+}
+
+.browser-env-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(0, 245, 212, 0.1);
+  border: 1px solid rgba(0, 245, 212, 0.25);
+}
+
+/* BI Workstation Header */
+.bi-hardware-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bi-station-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-amber);
+  box-shadow: 0 0 8px var(--accent-amber);
+}
+
+.bi-station-title {
+  color: var(--accent-amber);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.bi-model-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--accent-amber);
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(255, 178, 56, 0.12);
+  border: 1px solid rgba(255, 178, 56, 0.3);
+}
+
+/* SQL & Excel Terminal Headers */
+.sql-hardware-header, .excel-hardware-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sql-station-title {
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+
+.sql-schema-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(0, 245, 212, 0.1);
+  border: 1px solid rgba(0, 245, 212, 0.25);
+}
+
+.excel-station-title {
+  color: #f59e0b;
+  font-weight: 700;
+}
+
+.excel-clean-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #f59e0b;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+[data-theme="light"] .device-hardware-bar {
+  background: #f8fafc;
+  border-bottom-color: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light"] .browser-url-pill {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+  color: #475569;
+}
+
+[data-theme="light"] .mobile-island-pill {
+  background: #e2e8f0;
+  border-color: rgba(15, 23, 42, 0.15);
 }
 
 /* ================= VISUAL HEADERS / BANNERS ================= */

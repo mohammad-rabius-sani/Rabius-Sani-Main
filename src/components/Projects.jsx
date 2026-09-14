@@ -227,19 +227,6 @@ const Projects = () => {
           >
             <i className="fas fa-chart-pie"></i> Data &amp; Analytics
           </button>
-
-          {/* More on GitHub Filter Action */}
-          <a 
-            href="https://github.com/mohammad-rabius-sani?tab=repositories" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="filter-btn filter-btn-github"
-            title="Open all GitHub repositories in a new tab"
-          >
-            <i className="fab fa-github"></i>
-            <span>More on GitHub (18+)</span>
-            <i className="fas fa-arrow-up-right-from-square"></i>
-          </a>
         </div>
 
         {/* Active Tag Filter Indicator */}
@@ -254,23 +241,100 @@ const Projects = () => {
           </div>
         )}
 
-        {/* Projects 3D Cards Grid */}
+        {/* Projects Spatial 3D Hardware Viewports Grid */}
         <div className="projects-grid">
           {filteredProjects.map((proj) => (
             <div 
               key={proj.id} 
               className={`project-card-wrap ${proj.id === 'pichitv' ? 'flagship-card' : ''}`}
             >
-              <div className="project-card glass-panel">
+              {/* Spatial 3D Hardware Viewport Frame */}
+              <div className={`project-card glass-panel device-shell device-${proj.id}`}>
 
-                {/* Card Top: Visual Header */}
+                {/* Hardware Shell Top Chrome */}
+                <div className="device-hardware-bar">
+                  {proj.id === 'pichitv' && (
+                    <>
+                      <div className="tv-hardware-indicators">
+                        <span className="tv-power-led"></span>
+                        <span className="tv-ir-sensor"></span>
+                        <span className="tv-os-label"><i className="fas fa-tv"></i> ANDROID TV LEANBACK OS · 60FPS</span>
+                      </div>
+                      <span className="tv-res-badge">4K ULTRA HD</span>
+                    </>
+                  )}
+
+                  {proj.id === 'pichitube' && (
+                    <>
+                      <div className="mobile-island-pill">
+                        <span className="island-camera"></span>
+                        <span className="island-speaker"></span>
+                      </div>
+                      <div className="mobile-status-row">
+                        <span><i className="fas fa-shield-halved"></i> 0 TELEMETRY</span>
+                        <span><i className="fas fa-wifi"></i> 5G</span>
+                      </div>
+                    </>
+                  )}
+
+                  {proj.id === 'ecommerce' && (
+                    <>
+                      <div className="browser-traffic-lights">
+                        <span className="light light-red"></span>
+                        <span className="light light-yellow"></span>
+                        <span className="light light-green"></span>
+                      </div>
+                      <div className="browser-url-pill">
+                        <i className="fas fa-lock"></i>
+                        <span>https://ecommerce.local/admin/inventory</span>
+                      </div>
+                      <span className="browser-env-tag">REACT 18 + RLS</span>
+                    </>
+                  )}
+
+                  {proj.id === 'superstore' && (
+                    <>
+                      <div className="bi-hardware-header">
+                        <span className="bi-station-dot"></span>
+                        <span className="bi-station-title"><i className="fas fa-chart-pie"></i> BI WORKSTATION · 5,902 RECORDS</span>
+                      </div>
+                      <span className="bi-model-tag">STAR SCHEMA</span>
+                    </>
+                  )}
+
+                  {proj.id === 'music-store' && (
+                    <>
+                      <div className="sql-hardware-header">
+                        <span className="term-dot green"></span>
+                        <span className="sql-station-title"><i className="fas fa-terminal"></i> POSTGRESQL RELATIONAL ENGINE</span>
+                      </div>
+                      <span className="sql-schema-tag">3NF NORMALIZED</span>
+                    </>
+                  )}
+
+                  {proj.id === 'bike-sales' && (
+                    <>
+                      <div className="excel-hardware-header">
+                        <span className="term-dot yellow"></span>
+                        <span className="excel-station-title"><i className="fas fa-table"></i> EXCEL SLICER RELATIONAL MODEL</span>
+                      </div>
+                      <span className="excel-clean-tag">CLEANED DATASET</span>
+                    </>
+                  )}
+                </div>
+
+                {/* Card Visual Banner */}
                 <div className="project-visual-header">
                   {proj.id === 'pichitv' && (
                     <div className="pichitv-hero-banner">
                       <img 
-                        src="/Images/pichitv/Main Logo.png" 
-                        alt="PichiTV Logo" 
+                        src="/Images/pichitv/pichitv-main-logo.webp" 
+                        alt="PichiTV — Android TV &amp; Mobile IPTV Streaming Logo" 
                         className="pichitv-main-logo-art"
+                        loading="lazy"
+                        decoding="async"
+                        width="240"
+                        height="75"
                       />
                       <div className="pichitv-badges-overlay">
                         <span className="live-network-badge">
@@ -292,7 +356,7 @@ const Projects = () => {
                       <div className="banner-features-strip">
                         <span>⚡ 100% Ad-Free</span>
                         <span>🔒 0 Telemetry</span>
-                        <span>📱 4K UHD & PiP</span>
+                        <span>📱 4K UHD &amp; PiP</span>
                       </div>
                     </div>
                   )}

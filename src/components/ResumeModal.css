@@ -1,0 +1,262 @@
+/* ==========================================================================
+   IN-BROWSER RESUME MODAL STYLES (2026 WORLD-CLASS DESIGN)
+   ========================================================================== */
+
+.resume-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(4, 6, 10, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+[data-theme="light"] .resume-modal-overlay {
+  background: rgba(15, 23, 42, 0.55);
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.resume-modal-container {
+  width: 100%;
+  max-width: 1020px;
+  height: 90vh;
+  max-height: 920px;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-glass);
+  border-radius: 24px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 106, 26, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+[data-theme="light"] .resume-modal-container {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 25px 70px rgba(15, 23, 42, 0.18), 0 0 35px rgba(234, 88, 12, 0.12);
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Modal Header */
+.resume-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border-hairline);
+  background: var(--bg-surface-3);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+[data-theme="light"] .resume-modal-header {
+  background: #f8fafc;
+  border-bottom-color: rgba(15, 23, 42, 0.08);
+}
+
+.resume-modal-title-cluster {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.resume-pdf-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 106, 26, 0.12);
+  border: 1px solid rgba(255, 106, 26, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  color: var(--accent-ember);
+  flex-shrink: 0;
+}
+
+[data-theme="light"] .resume-pdf-icon {
+  background: #fff7ed;
+  border-color: #fdba74;
+  color: #ea580c;
+}
+
+.resume-doc-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.resume-doc-sub {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 2px;
+}
+
+/* Actions in Header */
+.resume-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-resume-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent-ember) 0%, #ff8a3d 100%);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255, 106, 26, 0.35);
+  transition: all var(--transition-fast);
+}
+
+.btn-resume-download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 106, 26, 0.5);
+  color: #ffffff;
+}
+
+.btn-resume-external,
+.btn-resume-close {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+[data-theme="light"] .btn-resume-external,
+[data-theme="light"] .btn-resume-close {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+  color: #475569;
+}
+
+.btn-resume-external:hover {
+  background: rgba(0, 245, 212, 0.12);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
+.btn-resume-close:hover {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: #ef4444;
+  color: #ef4444;
+  transform: rotate(90deg);
+}
+
+/* PDF Viewer Frame */
+.resume-viewer-frame {
+  flex: 1;
+  width: 100%;
+  background: #11141c;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="light"] .resume-viewer-frame {
+  background: #f1f5f9;
+}
+
+.resume-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Modal Footer Note */
+.resume-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: var(--bg-surface-3);
+  border-top: 1px solid var(--border-hairline);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .resume-modal-footer {
+  background: #f8fafc;
+  border-top-color: rgba(15, 23, 42, 0.08);
+  color: #64748b;
+}
+
+.resume-footer-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-sports);
+  font-weight: 600;
+}
+
+[data-theme="light"] .resume-footer-tag {
+  color: #16a34a;
+}
+
+@media (max-width: 768px) {
+  .resume-modal-container {
+    height: 95vh;
+    border-radius: 18px;
+  }
+  .resume-modal-header {
+    padding: 14px 18px;
+  }
+  .resume-doc-title {
+    font-size: 1rem;
+  }
+  .resume-modal-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 10px 18px;
+  }
+}

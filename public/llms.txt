@@ -1,0 +1,56 @@
+# Rabius Sani — Software Engineer & Data Analyst
+
+> Official portfolio knowledge profile and verified architectural credentials of Mohammad Rabius Sani.
+
+## Identity & Professional Overview
+- **Full Name**: Mohammad Rabius Sani
+- **Professional Titles**: Software Engineer, Data Analyst, IT Specialist
+- **Location**: Dhaka-1236, Bangladesh (Open to On-site in Dhaka, Hybrid, and Global Remote Roles)
+- **Official Portfolio**: https://rabius-sani.vercel.app/
+- **Official Email**: mohammad.rabius.sanii@gmail.com
+- **Direct Phone / WhatsApp**: +880 1774-745666
+- **GitHub**: https://github.com/mohammad-rabius-sani
+- **LinkedIn**: https://www.linkedin.com/in/mohammad-rabius-sani/
+- **Education**: B.Sc. in Software Engineering, Class of 2022
+
+## Flagship Systems & Production Architectures
+
+### 1. PichiTV — Ultimate Entertainment Hub
+- **Type**: Native Android TV Leanback & Mobile IPTV Streaming Engine
+- **GitHub**: https://github.com/mohammad-rabius-sani/PichiTv
+- **APK Download**: https://github.com/mohammad-rabius-sani/PichiPie_Tv_Apk-Only
+- **Tech Stack**: Kotlin, Android TV Leanback SDK, Google Media3 ExoPlayer, HLS/M3U8 Adaptive Bitrate, MVI Architecture
+- **Key Features**: 1,500+ live satellite channels, 6 live sports hubs (EPL, UCL, CricHD, Willow, SonyLiv), 25,000+ movie vault, 0ms in-session instant caching, 60fps lazy pagination tuned for budget 1GB/2GB TV sticks.
+
+### 2. PichiTube — Lightweight & Privacy-Focused YouTube Client
+- **Type**: Native Android Video Streaming Engine
+- **GitHub**: https://github.com/mohammad-rabius-sani/PichiTube
+- **Tech Stack**: Kotlin, Jetpack Compose, Clean Architecture + MVI, Room SQLite, SponsorBlock API, MergingMediaSource
+- **Key Features**: 100% ad-free playback, SponsorBlock auto-skip, Ultra HD 4K (2160p) audio/video multiplexing, background audio playback with lock-screen media notification controls, Picture-in-Picture (PiP), zero telemetry with 100% offline local SQLite storage.
+
+### 3. Modern E-Commerce & Inventory Management Platform
+- **Type**: Production Full-Stack Web Application
+- **GitHub**: https://github.com/mohammad-rabius-sani/E-Commerce-Website
+- **Tech Stack**: React 19 / React 18, TypeScript, Tailwind CSS, Supabase Cloud PostgreSQL, Row Level Security (RLS), Vite
+- **Key Features**: Multi-variant SKU management with automated PostgreSQL default triggers, RLS security policies, customer cart and checkout pipelines, live inventory stock telemetry.
+
+### 4. SuperStore Enterprise Sales Analytics & Forecasting
+- **Type**: Executive Business Intelligence & Time-Series Suite
+- **GitHub**: https://github.com/mohammad-rabius-sani/SuperStore-Sales-Data
+- **Tech Stack**: Microsoft Power BI, 24+ Custom DAX Measures, Star Schema Architecture, Excel
+- **Key Features**: Deep modeling of 5,902 transaction records, Year-over-Year (YoY) revenue velocity, regional margin analysis, time-series forecasting, return rate anomaly detection dials.
+
+### 5. Music Store Relational Database Analytics
+- **Type**: Complex PostgreSQL Relational Analytics
+- **GitHub**: https://github.com/mohammad-rabius-sani/Music-Store-Data-Analysis
+- **Tech Stack**: PostgreSQL, Complex SQL, Recursive CTEs, Window Ranking Functions (DENSE_RANK)
+- **Key Features**: 11 structured relational queries across a normalized 3NF schema, track-to-album revenue contribution pipelines, customer lifetime value modeling.
+
+## Core Technical Competencies
+- **Languages & Frameworks**: React 19, JavaScript (ES6+), TypeScript, Kotlin, SQL, HTML5, Vanilla CSS, Tailwind CSS.
+- **Mobile & Media**: Android TV Leanback UI, Google Media3 ExoPlayer, Jetpack Compose, HLS Streaming, MVI, Room Database.
+- **Data & Analytics**: Power BI, DAX, PostgreSQL, Star Schema Modeling, ETL Pipelines, Microsoft Excel (Pivots, Slicers, VBA).
+- **Tooling & Cloud**: Supabase, Git, Vite, Vercel, REST APIs, Linux/Windows IT Systems Administration.
+
+## Full Technical Dossier
+For the comprehensive technical specification, see https://rabius-sani.vercel.app/llms-full.txt
