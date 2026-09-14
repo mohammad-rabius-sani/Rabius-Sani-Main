@@ -26,7 +26,7 @@ const Projects = () => {
       techStack: ['Android TV', 'Kotlin', 'Google Media3 ExoPlayer', 'HLS / M3U8', 'Leanback UI', 'APK Release'],
       githubLink: 'https://github.com/mohammad-rabius-sani/PichiTv',
       secondaryGithub: 'https://github.com/mohammad-rabius-sani/PichiPie_Tv_Apk-Only',
-      apkDownload: 'https://github.com/mohammad-rabius-sani/PichiPie_Tv_Apk-Only',
+      apkDownload: 'https://pichi-tv.vercel.app/',
       highlights: [
         'Integrated Google Media3 ExoPlayer supporting adaptive HLS/M3U8 bitrate switching for buffering-free playback.',
         'Engineered D-pad friendly Android TV Leanback UI with focus scale states and TV remote key event listeners.',
@@ -595,7 +595,7 @@ const Projects = () => {
                   rel="noopener noreferrer" 
                   className="btn-secondary"
                 >
-                  <i className="fab fa-android"></i> Download APK Release
+                  <i className="fab fa-android"></i> {selectedModalProject.id === 'pichitv' ? 'Launch PichiTV (Web & APK)' : 'Download APK Release'}
                 </a>
               )}
             </div>

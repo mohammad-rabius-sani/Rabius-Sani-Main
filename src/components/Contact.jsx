@@ -211,18 +211,71 @@ const Contact = () => {
             
             {isSubmitted ? (
               <div className="submission-success-view">
-                <div className="success-icon-box">
-                  <i className="fas fa-check"></i>
+                {/* Cute Floating Robot / Courier Drone Mascot */}
+                <div className="cute-bot-stage">
+                  <div className="radar-ping-ring ring-1"></div>
+                  <div className="radar-ping-ring ring-2"></div>
+                  <div className="radar-ping-ring ring-3"></div>
+
+                  <div className="cute-bot-mascot">
+                    <div className="bot-antenna">
+                      <span className="antenna-sparkle"></span>
+                      <span className="antenna-stalk"></span>
+                    </div>
+                    <div className="bot-head">
+                      <div className="bot-visor">
+                        <span className="bot-eye left"></span>
+                        <span className="bot-eye right"></span>
+                        <span className="bot-smile"></span>
+                      </div>
+                    </div>
+                    <div className="bot-body">
+                      <div className="bot-chest-core">
+                        <i className="fas fa-heart"></i>
+                      </div>
+                    </div>
+                    <div className="bot-thruster">
+                      <span className="thruster-flame"></span>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="success-title">Transmission Received!</h3>
+
+                {/* Status Pill */}
+                <div className="success-status-pill">
+                  <span className="pulse-dot-cyan"></span>
+                  <span>ENCRYPTED DISPATCH · 200 OK</span>
+                </div>
+
+                <h3 className="success-title">
+                  Beep Boop! Packet Captured! 🎉
+                </h3>
                 <p className="success-desc">
-                  Thank you for reaching out. I have received your message and will respond to your email promptly.
+                  Your message has safely docked on Rabius Sani's personal dashboard in Dhaka! A direct notification ping was routed straight to his phone and email.
                 </p>
+
+                {/* Verified Telemetry Pipeline Checklist */}
+                <div className="success-telemetry-box">
+                  <div className="telemetry-item">
+                    <i className="fas fa-circle-check text-cyan"></i>
+                    <span><strong>Handshake:</strong> TLS encrypted transmission verified</span>
+                  </div>
+                  <div className="telemetry-item">
+                    <i className="fas fa-circle-check text-ember"></i>
+                    <span><strong>Routing:</strong> Direct notification ping sent to Rabius</span>
+                  </div>
+                  <div className="telemetry-item">
+                    <i className="fas fa-bolt text-amber"></i>
+                    <span><strong>Guaranteed ETA:</strong> Fast reply within 24 hours</span>
+                  </div>
+                </div>
+
                 <button 
-                  className="btn-primary"
+                  type="button"
+                  className="btn-primary success-reset-btn"
                   onClick={() => setIsSubmitted(false)}
                 >
-                  Send Another Message
+                  <i className="fas fa-paper-plane"></i>
+                  <span>Send Another Message</span>
                 </button>
               </div>
             ) : (

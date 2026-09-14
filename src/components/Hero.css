@@ -242,11 +242,31 @@
   margin-top: 2px;
 }
 
-@media (max-width: 600px) {
+/* User requirement 2: Hide 3+ Years Experience / 100% Production / 5,900+ BI Records / Global card on mobile */
+@media (max-width: 768px) {
   .hero-metrics-strip {
-    flex-direction: column;
-    gap: 10px;
+    display: none !important;
+  }
+
+  .hero-section {
+    padding-top: 85px;
+    padding-bottom: 20px;
+  }
+
+  .hero-status-pill {
+    padding: 6px 14px;
     width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .status-copy {
+    font-size: 0.75rem;
+  }
+
+  .status-time {
+    font-size: 0.72rem;
   }
 }
 
@@ -275,12 +295,6 @@
   width: 1px;
   height: 26px;
   background: var(--border-hairline);
-}
-
-@media (max-width: 600px) {
-  .hero-metric-separator {
-    display: none;
-  }
 }
 
 /* Social Strip */

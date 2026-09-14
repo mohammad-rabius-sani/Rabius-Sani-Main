@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import confetti from 'canvas-confetti';
 import './Navbar.css';
 
@@ -9,6 +9,7 @@ const Navbar = ({ onOpenResume }) => {
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('portfolio-theme') || 'dark';
   });
+  const navRef = useRef(null);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -20,6 +21,33 @@ const Navbar = ({ onOpenResume }) => {
     localStorage.setItem('portfolio-theme', nextTheme);
     document.documentElement.setAttribute('data-theme', nextTheme);
   };
+
+  // Close mobile menu on outside click or Escape key
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (mobileMenuOpen && navRef.current && !navRef.current.contains(event.target)) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape' && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside, { passive: true });
+      document.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +69,7 @@ const Navbar = ({ onOpenResume }) => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -62,7 +90,7 @@ const Navbar = ({ onOpenResume }) => {
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
   return (
-    <header className={`navbar-header ${scrolled ? 'is-scrolled' : ''}`}>
+    <header className={`navbar-header ${scrolled ? 'is-scrolled' : ''}`} ref={navRef}>
       <div className="navbar-container glass-panel">
         
         {/* Brand Logo & Monogram */}
@@ -222,9 +250,28 @@ const Navbar = ({ onOpenResume }) => {
             >
               <i className="fas fa-file-pdf"></i> Preview Full CV (In-Browser)
             </button>
+
+            <a 
+              href="https://github.com/mohammad-rabius-sani"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mobile-github-link"
+              onClick={closeMobileMenu}
+            >
+              <i className="fab fa-github"></i>
+              <span>GitHub Profile (@mohammad-rabius-sani)</span>
+              <i className="fas fa-arrow-up-right-from-square"></i>
+            </a>
           </div>
         </div>
       </div>
+
+      {/* Mobile Backdrop Overlay (Smart Auto-Close on Outside Click) */}
+      <div 
+        className={`mobile-backdrop ${mobileMenuOpen ? 'is-visible' : ''}`}
+        onClick={closeMobileMenu}
+        aria-hidden="true"
+      />
     </header>
   );
 };
