@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="rsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#0b0d12"/>
+      <stop offset="100%" stopColor="#121620"/>
+    </linearGradient>
+    <linearGradient id="rsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#ff6a1a"/>
+      <stop offset="50%" stopColor="#ffb238"/>
+      <stop offset="100%" stopColor="#00f5d4"/>
+    </linearGradient>
+    <filter id="rsGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  
+  <rect width="64" height="64" rx="16" fill="url(#rsBg)"/>
+  <rect width="62" height="62" x="1" y="1" rx="15" stroke="url(#rsGrad)" stroke-width="1.5" stroke-opacity="0.6" fill="none"/>
+  
+  <!-- Outer Shield Geometry -->
+  <polygon points="32,9 53,21 53,43 32,55 11,43 11,21" stroke="url(#rsGrad)" stroke-width="2" fill="rgba(255, 106, 26, 0.08)" filter="url(#rsGlow)"/>
+  
+  <!-- Core Monogram RS -->
+  <text x="32" y="38" text-anchor="middle" fill="#ffffff" font-size="19" font-family="'Outfit', sans-serif" font-weight="900" letter-spacing="0.5">RS</text>
+  
+  <!-- Circuit Accent Nodes -->
+  <circle cx="32" cy="13" r="2" fill="#ff6a1a"/>
+  <circle cx="32" cy="51" r="2" fill="#00f5d4"/>
+</svg>

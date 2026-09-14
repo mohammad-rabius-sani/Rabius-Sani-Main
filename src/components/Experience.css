@@ -1,0 +1,340 @@
+/* ==========================================================================
+   EXPERIENCE SECTION STYLES
+   ========================================================================== */
+
+.experience-section {
+  background: transparent;
+  position: relative;
+}
+
+/* 1. Impact Metrics Row */
+.impact-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 992px) {
+  .impact-metrics-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .impact-metrics-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.impact-box {
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.impact-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.amber-icon {
+  background: rgba(255, 178, 56, 0.15);
+  color: var(--accent-amber);
+  border: 1px solid rgba(255, 178, 56, 0.3);
+}
+
+.cyan-icon {
+  background: rgba(0, 245, 212, 0.15);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(0, 245, 212, 0.3);
+}
+
+.sports-icon {
+  background: rgba(180, 255, 57, 0.15);
+  color: var(--accent-sports);
+  border: 1px solid rgba(180, 255, 57, 0.3);
+}
+
+.violet-icon {
+  background: rgba(138, 43, 226, 0.15);
+  color: #b388ff;
+  border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+.impact-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.impact-number {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.impact-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* 2. Timeline */
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 20px;
+}
+
+.timeline-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.marker-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-ember);
+  border: 4px solid var(--bg-surface-1);
+  box-shadow: 0 0 12px rgba(255, 106, 26, 0.6);
+  z-index: 2;
+  margin-top: 24px;
+}
+
+.marker-line {
+  flex: 1;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(255, 106, 26, 0.4), rgba(255, 255, 255, 0.05));
+  margin-top: 6px;
+}
+
+.timeline-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.timeline-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.exp-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.exp-role {
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.exp-org-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 0.9rem;
+}
+
+.exp-org {
+  color: var(--accent-cyan);
+  font-weight: 500;
+}
+
+.exp-sep {
+  color: var(--text-muted);
+}
+
+.exp-loc {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.exp-period {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent-amber);
+  padding: 4px 12px;
+  background: rgba(255, 178, 56, 0.1);
+  border: 1px solid rgba(255, 178, 56, 0.25);
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.exp-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.96rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.exp-bullets i {
+  color: var(--accent-ember);
+  font-size: 0.75rem;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+/* 3. Certifications */
+.certifications-block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.certifications-heading {
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.certifications-heading i {
+  color: var(--accent-amber);
+}
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 992px) {
+  .certs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .certs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cert-card {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cert-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--accent-amber);
+}
+
+.cert-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cert-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-cyan);
+}
+
+.cert-title {
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.cert-issuer {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ================= EXPERIENCE LIGHT MODE OVERRIDES ================= */
+[data-theme="light"] .impact-box {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] .timeline-card {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 6px 25px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] .marker-dot {
+  border-color: #ffffff;
+  box-shadow: 0 0 10px rgba(234, 88, 12, 0.4);
+}
+
+[data-theme="light"] .marker-line {
+  background: linear-gradient(to bottom, rgba(234, 88, 12, 0.35), rgba(15, 23, 42, 0.08));
+}
+
+[data-theme="light"] .cert-card {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] .cert-icon-wrap {
+  background: #f8fafc;
+  border-color: rgba(15, 23, 42, 0.1);
+  color: #d97706;
+}
+
+[data-theme="light"] .exp-period {
+  color: #b45309;
+  background: rgba(217, 119, 6, 0.1);
+  border-color: rgba(217, 119, 6, 0.25);
+  font-weight: 600;
+}

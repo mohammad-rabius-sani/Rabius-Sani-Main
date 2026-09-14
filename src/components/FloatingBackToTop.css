@@ -1,0 +1,104 @@
+/* ==========================================================================
+   FLOATING BACK TO TOP BUTTON WITH SCROLL PROGRESS
+   ========================================================================== */
+
+.floating-top-wrap {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.85);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.35s;
+  pointer-events: none;
+}
+
+.floating-top-wrap.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.floating-top-btn {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(18, 21, 28, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 106, 26, 0.2);
+  transition: all var(--transition-fast);
+  padding: 0;
+}
+
+.floating-top-btn:hover {
+  transform: translateY(-4px) scale(1.08);
+  border-color: var(--accent-ember);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 106, 26, 0.5);
+  color: var(--accent-ember);
+}
+
+.floating-top-btn i {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.25s ease;
+}
+
+.floating-top-btn:hover i {
+  transform: translateY(-2px);
+}
+
+/* Circular SVG Progress Ring */
+.progress-ring {
+  position: absolute;
+  inset: 2px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 2.5;
+}
+
+.ring-bar {
+  fill: none;
+  stroke: var(--accent-ember);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.15s ease-out;
+}
+
+/* Light Mode Floating Button Overrides */
+[data-theme="light"] .floating-top-btn {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(15, 23, 42, 0.12);
+  color: #0f172a;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.12), 0 0 15px rgba(234, 88, 12, 0.15);
+}
+
+[data-theme="light"] .floating-top-btn:hover {
+  background: #ffffff;
+  border-color: var(--accent-ember);
+  color: var(--accent-ember);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18), 0 0 20px rgba(234, 88, 12, 0.3);
+}
+
+[data-theme="light"] .ring-bg {
+  stroke: rgba(15, 23, 42, 0.08);
+}
