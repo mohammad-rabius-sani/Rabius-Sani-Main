@@ -25,17 +25,50 @@
   display: block;
 }
 
+/* Atmospheric Tech Matrix Dot Grid Overlay */
+.bg-grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+  opacity: 0.55;
+  transition: opacity var(--transition-smooth);
+}
+
+[data-theme="light"] .bg-grid-overlay {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+  opacity: 0.7;
+}
+
 /* Atmospheric Radial Vignette: Ensures foreground cards & text are NEVER overshadowed */
 .ambient-vignette-overlay {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle at 50% 38%, transparent 30%, var(--bg-void) 94%);
-  opacity: 0.72;
+  background: radial-gradient(circle at 50% 40%, transparent 22%, rgba(6, 7, 10, 0.6) 65%, var(--bg-void) 96%);
+  opacity: 0.85;
   transition: background var(--transition-smooth), opacity var(--transition-smooth);
 }
 
 [data-theme="light"] .ambient-vignette-overlay {
-  background: radial-gradient(circle at 50% 38%, transparent 25%, var(--bg-void) 90%);
-  opacity: 0.65;
+  background: radial-gradient(circle at 50% 40%, transparent 20%, rgba(241, 245, 249, 0.65) 60%, var(--bg-void) 94%);
+  opacity: 0.82;
 }
+
+/* Vertical Depth Gradient: Smooths Section Transitions & Anchors Sticky Header */
+.vertical-depth-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    var(--bg-void) 0%,
+    transparent 12%,
+    transparent 88%,
+    var(--bg-void) 100%
+  );
+  opacity: 0.75;
+  transition: background var(--transition-smooth), opacity var(--transition-smooth);
+}
+

@@ -4,6 +4,7 @@ import CursorGlow from './components/CursorGlow';
 import FloatingBackToTop from './components/FloatingBackToTop';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import SectionDivider from './components/SectionDivider';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
@@ -45,10 +46,15 @@ function App() {
 
       <main>
         <Hero />
+        <SectionDivider index="01" label="ABOUT & PHILOSOPHY" accent="ember" />
         <About />
+        <SectionDivider index="02" label="CORE STACK & EXPERTISE" accent="cyan" />
         <Skills />
+        <SectionDivider index="03" label="PRODUCTION ARCHITECTURE" accent="amber" />
         <Projects />
+        <SectionDivider index="04" label="EXPERIENCE & CREDENTIALS" accent="sports" />
         <Experience />
+        <SectionDivider index="05" label="DIRECT TRANSMISSION" accent="cyan" />
         <Contact />
       </main>
 
@@ -61,3 +67,4 @@ function App() {
 }
 
 export default App;
+

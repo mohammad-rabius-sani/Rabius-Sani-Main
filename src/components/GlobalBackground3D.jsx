@@ -393,8 +393,14 @@ const GlobalBackground3D = () => {
       {/* 3D WebGL Canvas Layer */}
       <canvas ref={canvasRef} className="canvas-3d-scene" />
 
+      {/* Atmospheric Tech Matrix Grid Overlay */}
+      <div className="bg-grid-overlay" />
+
       {/* Atmospheric Radial Vignette: Protects Content Clarity and Prevents Overshadowing */}
       <div className="ambient-vignette-overlay" />
+
+      {/* Vertical Depth Gradient: Enhances Section Contrast & Navbar Depth */}
+      <div className="vertical-depth-overlay" />
     </div>
   );
 };

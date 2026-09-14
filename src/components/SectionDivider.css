@@ -1,0 +1,172 @@
+/* ==========================================================================
+   SECTION DIVIDER & AMBIENT TRANSITION STYLES
+   ========================================================================== */
+
+.section-divider-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 18px auto;
+  padding: 0 24px;
+  z-index: 5;
+  user-select: none;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--border-hairline) 30%, var(--border-glass) 100%);
+}
+
+.divider-line.right-line {
+  background: linear-gradient(90deg, var(--border-glass) 0%, var(--border-hairline) 70%, transparent 100%);
+}
+
+.divider-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 14px;
+  border-radius: 100px;
+  background: var(--bg-glass-strong);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.8px;
+  color: var(--text-secondary);
+  margin: 0 16px;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.divider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.divider-index {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.divider-sep {
+  opacity: 0.4;
+  color: var(--text-muted);
+}
+
+.divider-label {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Ambient Glow Underlay */
+.divider-ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 1px;
+  filter: blur(18px);
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+/* Accent Variations */
+.divider-ember .divider-dot {
+  background-color: var(--accent-ember);
+  box-shadow: 0 0 8px var(--accent-ember);
+}
+.divider-ember .divider-ambient-glow {
+  background-color: var(--accent-ember);
+}
+.divider-ember .divider-label {
+  color: var(--accent-ember);
+}
+
+.divider-cyan .divider-dot {
+  background-color: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan);
+}
+.divider-cyan .divider-ambient-glow {
+  background-color: var(--accent-cyan);
+}
+.divider-cyan .divider-label {
+  color: var(--accent-cyan);
+}
+
+.divider-amber .divider-dot {
+  background-color: var(--accent-amber);
+  box-shadow: 0 0 8px var(--accent-amber);
+}
+.divider-amber .divider-ambient-glow {
+  background-color: var(--accent-amber);
+}
+.divider-amber .divider-label {
+  color: var(--accent-amber);
+}
+
+.divider-sports .divider-dot {
+  background-color: var(--accent-sports);
+  box-shadow: 0 0 8px var(--accent-sports);
+}
+.divider-sports .divider-ambient-glow {
+  background-color: var(--accent-sports);
+}
+.divider-sports .divider-label {
+  color: var(--accent-sports);
+}
+
+/* Light Mode Overrides */
+[data-theme="light"] .divider-pill {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] .divider-line {
+  background: linear-gradient(90deg, transparent 0%, rgba(15, 23, 42, 0.06) 30%, rgba(15, 23, 42, 0.12) 100%);
+}
+
+[data-theme="light"] .divider-line.right-line {
+  background: linear-gradient(90deg, rgba(15, 23, 42, 0.12) 0%, rgba(15, 23, 42, 0.06) 70%, transparent 100%);
+}
+
+[data-theme="light"] .divider-ambient-glow {
+  opacity: 0.15;
+}
+
+[data-theme="light"] .divider-ember .divider-label {
+  color: #c2410c;
+}
+
+[data-theme="light"] .divider-cyan .divider-label {
+  color: #0284c7;
+}
+
+[data-theme="light"] .divider-amber .divider-label {
+  color: #b45309;
+}
+
+[data-theme="light"] .divider-sports .divider-label {
+  color: #15803d;
+}
+
+@media (max-width: 600px) {
+  .section-divider-wrap {
+    padding: 0 16px;
+    margin: 12px auto;
+  }
+  .divider-pill {
+    padding: 3px 10px;
+    font-size: 0.62rem;
+    margin: 0 10px;
+  }
+}
