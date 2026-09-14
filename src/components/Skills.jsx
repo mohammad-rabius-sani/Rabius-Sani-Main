@@ -84,7 +84,7 @@ const Skills = () => {
       tier: 'Solo Lead', 
       icon: 'fab fa-wordpress', 
       iconColor: '#21759b',
-      detail: 'Custom Themes, Plugin Optimization, Full Site Architecture (NATAB)'
+      detail: 'Custom Themes, Plugin Optimization, Full Site Architecture & Client Deployments'
     },
 
     // Data Analytics & BI
@@ -109,60 +109,60 @@ const Skills = () => {
     { 
       name: 'SQL & PostgreSQL Relational Analytics', 
       category: 'data', 
-      level: 92, 
-      tier: 'Advanced', 
+      level: 94, 
+      tier: 'Production', 
       icon: 'fas fa-database', 
       iconColor: '#336791',
-      detail: 'CTEs, Window Functions (DENSE_RANK), Complex Multi-Table Aggregations'
+      detail: 'Window Functions, Subqueries, CTEs, Data Cleansing & Relational Normalization'
     },
     { 
-      name: 'Google Sheets & Looker Studio', 
+      name: 'Data Pipeline Engineering & ETL', 
       category: 'data', 
       level: 88, 
-      tier: 'Proficient', 
-      icon: 'fas fa-table', 
-      iconColor: '#0f9d58',
-      detail: 'Automated Stakeholder Reporting, Executive Metric Visualizations'
+      tier: 'Advanced', 
+      icon: 'fas fa-arrow-progress', 
+      iconColor: '#ff6a1a',
+      detail: 'ETL Pipelines, Schema Validation, Business Metric Standardisation'
     },
 
     // Mobile & Android
     { 
-      name: 'Android SDK & Kotlin', 
+      name: 'Android TV & Google Media3 ExoPlayer', 
       category: 'mobile', 
-      level: 90, 
-      tier: 'Production', 
+      level: 95, 
+      tier: 'Flagship', 
       icon: 'fab fa-android', 
       iconColor: '#3ddc84',
-      detail: 'Leanback UI, Jetpack Compose, Lifecycle Management, Clean Architecture'
+      detail: 'Custom HLS Bitrate Engine, D-Pad Remote Control Focus Engine, 0ms Cache'
     },
     { 
-      name: 'Google Media3 & ExoPlayer', 
+      name: 'Kotlin & Jetpack Compose', 
       category: 'mobile', 
       level: 92, 
-      tier: 'Advanced', 
-      icon: 'fas fa-play-circle', 
-      iconColor: '#ff6a1a',
-      detail: 'Adaptive HLS/M3U8 Streaming, MergingMediaSource, 0ms In-Memory Caching'
+      tier: 'Production', 
+      icon: 'fas fa-mobile-screen', 
+      iconColor: '#7f52ff',
+      detail: 'Modern Declarative UI, Coroutines, StateFlow, Room Local SQLite DB'
     },
     { 
-      name: 'Clean MVI & Local Room DB', 
+      name: 'Clean Architecture & MVI Pattern', 
       category: 'mobile', 
-      level: 88, 
-      tier: 'Architect', 
-      icon: 'fas fa-layer-group', 
-      iconColor: '#a855f7',
-      detail: 'Reactive Unidirectional Data Flow, SQLite Storage, SponsorBlock Integration'
+      level: 92, 
+      tier: 'Architecture', 
+      icon: 'fas fa-cubes', 
+      iconColor: '#00f5d4',
+      detail: 'Reactive Unidirectional Data Flow, SQLite Room, Zero Telemetry'
     },
 
     // Databases, Cloud & IT Ops
     { 
-      name: 'Supabase & PostgreSQL Cloud', 
+      name: 'PostgreSQL & Supabase BaaS', 
       category: 'cloud', 
-      level: 88, 
-      tier: 'Full-Stack', 
-      icon: 'fas fa-cloud', 
+      level: 90, 
+      tier: 'Production', 
+      icon: 'fas fa-server', 
       iconColor: '#3ecf8e',
-      detail: 'Row-Level Security (RLS), Trigger Functions, Realtime Subscriptions'
+      detail: 'Row-Level Security (RLS), Trigger Functions, Realtime Telemetry, Indexing'
     },
     { 
       name: 'Git, GitHub & Version Control', 
@@ -193,9 +193,16 @@ const Skills = () => {
     }
   ];
 
-  const filteredSkills = activeCategory === 'all'
-    ? skillItems
-    : skillItems.filter(s => s.category === activeCategory);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredSkills = skillItems.filter(item => {
+    const matchesCat = activeCategory === 'all' || item.category === activeCategory;
+    const matchesSearch = !searchQuery.trim() || 
+      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.detail.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.tier.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCat && matchesSearch;
+  });
 
   // Animate skill bars on scroll into view
   useEffect(() => {
@@ -266,55 +273,79 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* 2. CATEGORY FILTER NAVIGATION BAR */}
-        <div className="skills-filter-nav">
-          {skillCategories.map((cat) => (
-            <button
-              key={cat.id}
-              className={`skills-cat-btn ${activeCategory === cat.id ? 'active' : ''}`}
-              onClick={() => setActiveCategory(cat.id)}
-            >
-              <i className={cat.icon}></i>
-              <span>{cat.label}</span>
-            </button>
-          ))}
+        {/* 2. CATEGORY FILTER NAVIGATION BAR & LIVE SEARCH */}
+        <div className="skills-nav-row">
+          <div className="skills-filter-nav">
+            {skillCategories.map((cat) => (
+              <button
+                key={cat.id}
+                className={`skills-cat-btn ${activeCategory === cat.id ? 'active' : ''}`}
+                onClick={() => setActiveCategory(cat.id)}
+              >
+                <i className={cat.icon}></i>
+                <span>{cat.label}</span>
+              </button>
+            ))}
+          </div>
+          <div className="skills-search-box">
+            <i className="fas fa-magnifying-glass search-icon"></i>
+            <input 
+              type="text" 
+              placeholder="Search stack (e.g. react, sql, compose)..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="skills-search-input"
+              aria-label="Filter skills by keyword"
+            />
+            {searchQuery && (
+              <button className="clear-search-btn" onClick={() => setSearchQuery('')} aria-label="Clear search">×</button>
+            )}
+          </div>
         </div>
 
         {/* 3. INTERACTIVE 2-COLUMN SKILLS GRID */}
         <div className="skills-cards-grid">
-          {filteredSkills.map((skill, idx) => (
-            <div key={idx} className="skill-spec-card glass-panel">
-              <div className="skill-card-top-row">
-                <div className="skill-title-cluster">
-                  <div 
-                    className="skill-tech-icon"
-                    style={{ color: skill.iconColor }}
-                  >
-                    <i className={skill.icon}></i>
-                  </div>
-                  <div>
-                    <h4 className="skill-title-text">{skill.name}</h4>
-                    <span className="skill-detail-sub">{skill.detail}</span>
-                  </div>
-                </div>
-                <div className="skill-tier-badge">
-                  {skill.tier}
-                </div>
-              </div>
-
-              {/* Progress Level Bar */}
-              <div className="skill-meter-wrap">
-                <div className="skill-meter-track">
-                  <div 
-                    className="skill-bar-fill"
-                    data-width={`${skill.level}%`}
-                    ref={(el) => (barsRef.current[idx] = el)}
-                  ></div>
-                </div>
-                <span className="skill-pct-label">{skill.level}%</span>
-              </div>
+          {filteredSkills.length === 0 ? (
+            <div className="skills-empty-notice glass-panel">
+              <i className="fas fa-filter-circle-xmark"></i>
+              <p>No skills matched &quot;{searchQuery}&quot;. Try searching &quot;React&quot;, &quot;SQL&quot;, &quot;Kotlin&quot;, or &quot;DAX&quot;.</p>
+              <button className="btn-secondary" onClick={() => setSearchQuery('')}>Reset Search</button>
             </div>
-          ))}
+          ) : (
+            filteredSkills.map((skill, idx) => (
+              <div key={idx} className="skill-spec-card glass-panel">
+                <div className="skill-card-top-row">
+                  <div className="skill-title-cluster">
+                    <div 
+                      className="skill-tech-icon"
+                      style={{ color: skill.iconColor }}
+                    >
+                      <i className={skill.icon}></i>
+                    </div>
+                    <div>
+                      <h4 className="skill-title-text">{skill.name}</h4>
+                      <span className="skill-detail-sub">{skill.detail}</span>
+                    </div>
+                  </div>
+                  <div className="skill-tier-badge">
+                    {skill.tier}
+                  </div>
+                </div>
+
+                {/* Progress Level Bar */}
+                <div className="skill-meter-wrap">
+                  <div className="skill-meter-track">
+                    <div 
+                      className="skill-bar-fill"
+                      data-width={`${skill.level}%`}
+                      ref={(el) => (barsRef.current[idx] = el)}
+                    ></div>
+                  </div>
+                  <span className="skill-pct-label">{skill.level}%</span>
+                </div>
+              </div>
+            ))
+          )}
         </div>
 
         {/* 4. BOTTOM ARCHITECTURE PILLARS SUMMARY */}
@@ -332,6 +363,37 @@ const Skills = () => {
           <div className="strip-item">
             <i className="fas fa-chart-pie text-gradient-amber"></i>
             <span><strong>Analytical Precision:</strong> Star schema modeling &amp; verified DAX calculations for decision clarity</span>
+          </div>
+        </div>
+
+        {/* 5. TOOLING & DEVOPS ECOSYSTEM CHIP CLOUD */}
+        <div className="auxiliary-tools-strip glass-panel">
+          <div className="aux-header">
+            <span className="aux-tag"><i className="fas fa-toolbox"></i> Ecosystem &amp; Utilities</span>
+            <h4 className="aux-title">Everyday Engineering Tooling, Platforms &amp; Protocols</h4>
+          </div>
+          <div className="aux-chips-grid">
+            {[
+              { name: 'Docker', icon: 'fab fa-docker' },
+              { name: 'Git & GitHub', icon: 'fab fa-github' },
+              { name: 'Postman REST API', icon: 'fas fa-paper-plane' },
+              { name: 'Vite & Rolldown', icon: 'fas fa-bolt' },
+              { name: 'Vercel Deployment', icon: 'fas fa-cloud-arrow-up' },
+              { name: 'Supabase RLS & Auth', icon: 'fas fa-database' },
+              { name: 'Linux Bash CLI', icon: 'fas fa-terminal' },
+              { name: 'Android Studio', icon: 'fab fa-android' },
+              { name: 'Figma UI/UX', icon: 'fab fa-figma' },
+              { name: 'D-Pad Remote UI', icon: 'fas fa-tv' },
+              { name: 'SponsorBlock API', icon: 'fas fa-ban' },
+              { name: 'HLS / M3U8 Streams', icon: 'fas fa-tower-broadcast' },
+              { name: 'Power Query M', icon: 'fas fa-table' },
+              { name: 'DAX Studio', icon: 'fas fa-chart-line' }
+            ].map((tool, i) => (
+              <span key={i} className="aux-chip">
+                <i className={tool.icon}></i>
+                <span>{tool.name}</span>
+              </span>
+            ))}
           </div>
         </div>
 

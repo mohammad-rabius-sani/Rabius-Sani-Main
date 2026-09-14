@@ -1007,3 +1007,134 @@
 [data-theme="light"] .modal-sub {
   color: #0d9488;
 }
+
+/* ================= ACTIVE TAG FILTER BAR ================= */
+.active-tag-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+  background: rgba(0, 245, 212, 0.08);
+  border: 1px solid rgba(0, 245, 212, 0.3);
+}
+
+.tag-filter-text {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent-cyan);
+}
+
+.tag-filter-text strong {
+  color: #ffffff;
+}
+
+.btn-clear-tag {
+  background: none;
+  border: 1px solid rgba(0, 245, 212, 0.4);
+  color: var(--accent-cyan);
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-clear-tag:hover {
+  background: var(--accent-cyan);
+  color: #000000;
+}
+
+[data-theme="light"] .active-tag-filter-bar {
+  background: #f0fdf4;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+[data-theme="light"] .tag-filter-text {
+  color: #15803d;
+}
+
+[data-theme="light"] .tag-filter-text strong {
+  color: #0f172a;
+}
+
+[data-theme="light"] .btn-clear-tag {
+  border-color: #15803d;
+  color: #15803d;
+}
+
+[data-theme="light"] .btn-clear-tag:hover {
+  background: #15803d;
+  color: #ffffff;
+}
+
+/* Selected Tech Tag */
+.tech-tag {
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tech-tag:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  transform: translateY(-1px);
+}
+
+.tech-tag.tag-selected {
+  background: rgba(0, 245, 212, 0.2);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(0, 245, 212, 0.2);
+}
+
+[data-theme="light"] .tech-tag:hover {
+  border-color: #0284c7;
+  color: #0284c7;
+}
+
+[data-theme="light"] .tech-tag.tag-selected {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+}
+
+/* Direct APK Card Button */
+.btn-card-apk {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 100px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-card-apk:hover {
+  background: #10b981;
+  color: #ffffff;
+  border-color: #10b981;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+  transform: translateY(-2px);
+}
+
+[data-theme="light"] .btn-card-apk {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.35);
+  color: #15803d;
+}
+
+[data-theme="light"] .btn-card-apk:hover {
+  background: #15803d;
+  color: #ffffff;
+}
+

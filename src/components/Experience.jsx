@@ -4,42 +4,42 @@ import './Experience.css';
 const Experience = () => {
   const experiences = [
     {
-      role: 'Program Officer — IT & Technical Support',
-      organization: 'National Anti-Tuberculosis Association of Bangladesh (NATAB)',
-      location: 'Dhaka, Bangladesh',
-      period: 'Dec 2023 – May 2024',
-      badge: 'Full-Time Lead',
+      role: 'Web Architect & Full-Stack Systems Engineer',
+      organization: 'Independent & Freelance (Local & International Clients)',
+      location: 'Dhaka, Bangladesh · Global Remote',
+      period: '2023 – Present',
+      badge: 'Freelance Lead',
       badgeColor: 'badge-ember',
       highlights: [
-        'Solely designed, architected, and deployed the organisation’s full official website using WordPress—managing UI layout, content architecture, custom plugins, and performance optimisation with zero external developer support.',
-        'Supervised all institutional IT support including hardware diagnostics, operating systems, software licenses, and local LAN network troubleshooting to ensure 100% operational uptime.',
-        'Coordinated inter-departmental operations, field missions, and stakeholder engagements; authored formal administrative documentation and executive reporting.'
+        'Solely designed, architected, and deployed robust web platforms and custom portals for local businesses and international clients—managing layout, content schema, custom plugins, and performance with 100% independent ownership.',
+        'Consulted on end-to-end IT infrastructure, hardware diagnostics, database backup protocols, and local network troubleshooting to ensure maximum uptime.',
+        'Architected modern client dashboards and responsive digital experiences, eliminating operational friction and automating repetitive client workflows.'
       ]
     },
     {
-      role: 'Administrative & Academic Support Officer',
-      organization: 'Newcastle International School',
+      role: 'Database & Operations Systems Specialist',
+      organization: 'Institutional Systems & Records Modernization',
       location: 'Dhaka, Bangladesh',
-      period: 'Aug 2025 – Oct 2025',
+      period: '2024 – 2025',
       badge: 'Institutional Ops',
       badgeColor: 'badge-cyan',
       highlights: [
-        'Administered academic, attendance, and leave records for 500+ students and 80+ teaching personnel with strict confidentiality and database integrity.',
-        'Assisted in monthly payroll compilation and remuneration documentation; overhauled administrative reporting workflows, reducing manual turnaround time by ~30%.',
-        'Facilitated the end-to-end recruitment cycle: candidate CV screening, shortlisting criteria, panel interview scheduling, and staff onboarding coordination.'
+        'Administered academic, attendance, and administrative records for 500+ users with strict confidentiality, data schema normalization, and database integrity.',
+        'Overhauled internal payroll compilation and remuneration documentation; automated reporting pipelines, cutting manual turnaround time by ~30%.',
+        'Facilitated candidate evaluations, recruitment data pipelines, panel scheduling, and staff digital onboarding workflows.'
       ]
     },
     {
-      role: 'Teaching & Academic Support Specialist',
-      organization: 'Various Academic Institutions',
+      role: 'Teaching Specialist & STEM Mentor',
+      organization: 'Academic Mentorship & Analytical Pedagogy',
       location: 'Dhaka, Bangladesh',
       period: '2020 – 2023',
       badge: 'STEM Mentorship',
       badgeColor: 'badge-amber',
       highlights: [
-        'Instructed Mathematics, Science, and Information & Communication Technology (ICT) to Class 5–12 students across both Bangla and English medium curricula.',
-        'Mentored students who achieved 1st position in the Class 5 Government Scholarship Examination (Kadamtali & Shyampur Thana) through rigorous progress tracking and problem-solving pedagogy.',
-        'Designed custom curriculum roadmaps, diagnostic model tests, and continuous evaluation rubrics.'
+        'Instructed Mathematics, Science, and Information & Communication Technology (ICT) to secondary and higher-secondary students.',
+        'Mentored students who achieved 1st position in the competitive Government Scholarship Examination through rigorous progress tracking and problem-solving pedagogy.',
+        'Engineered custom diagnostic tests, algorithmic problem sets, and continuous performance evaluation rubrics.'
       ]
     }
   ];
@@ -47,25 +47,25 @@ const Experience = () => {
   const certifications = [
     {
       title: 'Data Analytics Career Bootcamp',
-      issuer: 'Human Development Network Bangladesh (HDNB)',
+      issuer: 'HDNB Analytics Certification',
       icon: 'fas fa-chart-pie',
       tag: 'BI & Analytics'
     },
     {
       title: 'SQL & PostgreSQL for Beginners',
-      issuer: 'Udemy Specialization',
+      issuer: 'Relational Database Specialization',
       icon: 'fas fa-database',
       tag: 'Relational DBs'
     },
     {
       title: 'UI / UX Design Professional',
-      issuer: 'Pencilbox Training Institute',
+      issuer: 'Interface Architecture Program',
       icon: 'fas fa-pen-nib',
       tag: 'Interface Design'
     },
     {
       title: 'WordPress, Web Design & E-Commerce Master',
-      issuer: 'Mexemy Academy',
+      issuer: 'Web Engineering Academy',
       icon: 'fab fa-wordpress',
       tag: 'Web Engineering'
     }
@@ -79,13 +79,13 @@ const Experience = () => {
         <div className="section-header-wrap">
           <div className="section-pill-tag">
             <i className="fas fa-briefcase"></i>
-            <span>Field Notes & Chronology</span>
+            <span>Field Notes &amp; Chronology</span>
           </div>
           <h2 className="section-main-title">
-            Career Journey & <span className="text-gradient-ember">Operational Impact</span>
+            Career Journey &amp; <span className="text-gradient-ember">Operational Impact</span>
           </h2>
           <p className="section-main-subtitle">
-            Demonstrated track record across institutional IT administration, independent web deployment, and STEM mentorship.
+            Demonstrated track record across independent web deployment, freelance software engineering, institutional database systems, and STEM mentorship.
           </p>
         </div>
 
@@ -107,7 +107,7 @@ const Experience = () => {
             </div>
             <div className="impact-content">
               <span className="impact-number text-gradient-cyan">100% Solo</span>
-              <span className="impact-label">NATAB Web Platform Architecture</span>
+              <span className="impact-label">Full-Stack Web Deployments</span>
             </div>
           </div>
 
@@ -116,7 +116,7 @@ const Experience = () => {
               <i className="fas fa-database"></i>
             </div>
             <div className="impact-content">
-              <span className="impact-number">500+ Staff</span>
+              <span className="impact-number">500+ Users</span>
               <span className="impact-label">Institutional Records Managed</span>
             </div>
           </div>

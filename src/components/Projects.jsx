@@ -3,6 +3,7 @@ import './Projects.css';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [selectedTag, setSelectedTag] = useState(null);
   const [selectedModalProject, setSelectedModalProject] = useState(null);
 
   const projectsData = [
@@ -52,6 +53,7 @@ const Projects = () => {
       ],
       techStack: ['Jetpack Compose', 'Kotlin', 'Clean Architecture', 'MVI', 'Room DB', 'SponsorBlock', 'PiP Windowing'],
       githubLink: 'https://github.com/mohammad-rabius-sani/PichiTube',
+      apkDownload: 'https://github.com/mohammad-rabius-sani/PichiTube',
       highlights: [
         'Integrated SponsorBlock to automatically skip sponsored segments, intro animations, and subscribe nags.',
         'Ultra HD & 4K playback (2160p, 1440p, 1080p60) powered by custom MergingMediaSource audio/video multiplexing.',
@@ -158,9 +160,11 @@ const Projects = () => {
     }
   ];
 
-  const filteredProjects = activeFilter === 'all'
-    ? projectsData
-    : projectsData.filter(p => p.category === activeFilter);
+  const filteredProjects = projectsData.filter(p => {
+    const matchesCat = activeFilter === 'all' || p.category === activeFilter;
+    const matchesTag = !selectedTag || p.techStack.includes(selectedTag);
+    return matchesCat && matchesTag;
+  });
 
   return (
     <section id="projects" className="section projects-section fade-up-element">
@@ -174,7 +178,7 @@ const Projects = () => {
               <span>Engineering Showcase</span>
             </div>
             <h2 className="section-main-title">
-              Featured Works & <span className="text-gradient-ember">Flagship Products</span>
+              Featured Works &amp; <span className="text-gradient-ember">Flagship Products</span>
             </h2>
             <p className="section-main-subtitle">
               From low-latency Android TV IPTV engines to production web applications and enterprise forecasting suites.
@@ -200,8 +204,8 @@ const Projects = () => {
         {/* Filter Navigation Bar */}
         <div className="projects-filter-nav">
           <button 
-            className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
-            onClick={() => setActiveFilter('all')}
+            className={`filter-btn ${activeFilter === 'all' && !selectedTag ? 'active' : ''}`}
+            onClick={() => { setActiveFilter('all'); setSelectedTag(null); }}
           >
             All Works ({projectsData.length})
           </button>
@@ -209,7 +213,7 @@ const Projects = () => {
             className={`filter-btn ${activeFilter === 'mobile' ? 'active' : ''}`}
             onClick={() => setActiveFilter('mobile')}
           >
-            <i className="fab fa-android"></i> Streaming & Mobile
+            <i className="fab fa-android"></i> Streaming &amp; Mobile
           </button>
           <button 
             className={`filter-btn ${activeFilter === 'web' ? 'active' : ''}`}
@@ -221,7 +225,7 @@ const Projects = () => {
             className={`filter-btn ${activeFilter === 'data' ? 'active' : ''}`}
             onClick={() => setActiveFilter('data')}
           >
-            <i className="fas fa-chart-pie"></i> Data & Analytics
+            <i className="fas fa-chart-pie"></i> Data &amp; Analytics
           </button>
 
           {/* More on GitHub Filter Action */}
@@ -237,6 +241,18 @@ const Projects = () => {
             <i className="fas fa-arrow-up-right-from-square"></i>
           </a>
         </div>
+
+        {/* Active Tag Filter Indicator */}
+        {selectedTag && (
+          <div className="active-tag-filter-bar glass-panel">
+            <span className="tag-filter-text">
+              <i className="fas fa-filter"></i> Filtering by technology: <strong>{selectedTag}</strong> ({filteredProjects.length} matched)
+            </span>
+            <button className="btn-clear-tag" onClick={() => setSelectedTag(null)}>
+              Reset Filter ×
+            </button>
+          </div>
+        )}
 
         {/* Projects 3D Cards Grid */}
         <div className="projects-grid">
@@ -371,10 +387,18 @@ const Projects = () => {
                     ))}
                   </div>
 
-                  {/* Tech Stack Pills */}
+                  {/* Tech Stack Pills (Clickable for Tag Filtering) */}
                   <div className="project-tech-tags">
                     {proj.techStack.map((tech, idx) => (
-                      <span key={idx} className="tech-tag">
+                      <span 
+                        key={idx} 
+                        className={`tech-tag ${selectedTag === tech ? 'tag-selected' : ''}`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedTag(selectedTag === tech ? null : tech);
+                        }}
+                        title={`Filter projects by ${tech}`}
+                      >
                         {tech}
                       </span>
                     ))}
@@ -390,6 +414,19 @@ const Projects = () => {
                     </button>
 
                     <div className="footer-links-group">
+                      {proj.apkDownload && (
+                        <a 
+                          href={proj.apkDownload} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="btn-card-apk"
+                          title="Direct APK Download Release (New Tab)"
+                        >
+                          <i className="fab fa-android"></i>
+                          <span>Get APK</span>
+                        </a>
+                      )}
+
                       {proj.githubLink && (
                         <a 
                           href={proj.githubLink} 
@@ -399,17 +436,6 @@ const Projects = () => {
                           title="View Repository on GitHub (New Tab)"
                         >
                           <i className="fab fa-github"></i>
-                        </a>
-                      )}
-                      {proj.apkDownload && (
-                        <a 
-                          href={proj.apkDownload} 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="action-icon-link apk-link"
-                          title="Download Shipped APK Release (New Tab)"
-                        >
-                          <i className="fab fa-android"></i>
                         </a>
                       )}
                     </div>

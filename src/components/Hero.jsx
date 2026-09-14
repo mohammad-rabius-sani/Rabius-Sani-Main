@@ -1,9 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import './Hero.css';
 
 const Hero = () => {
   const [hudTab, setHudTab] = useState('profile'); // 'profile' | 'code'
+  const [dhakaTime, setDhakaTime] = useState('');
+  const [copiedStatus, setCopiedStatus] = useState('');
+
+  useEffect(() => {
+    const updateTime = () => {
+      try {
+        const now = new Date();
+        const formatted = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'Asia/Dhaka',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true
+        }).format(now);
+        setDhakaTime(formatted);
+      } catch (e) {
+        setDhakaTime('');
+      }
+    };
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleCvDownload = () => {
     confetti({
@@ -12,6 +35,12 @@ const Hero = () => {
       origin: { y: 0.6 },
       colors: ['#ff6a1a', '#ffb238', '#00f5d4', '#ffffff']
     });
+  };
+
+  const copyContact = (text, type) => {
+    navigator.clipboard.writeText(text);
+    setCopiedStatus(type);
+    setTimeout(() => setCopiedStatus(''), 2200);
   };
 
   return (
@@ -26,10 +55,14 @@ const Hero = () => {
           {/* ================= LEFT: 2026 HERO CONTENT ================= */}
           <div className="hero-text-block">
             
-            {/* Live Availability Status Pill */}
+            {/* Live Availability Status Pill with Live Dhaka Time */}
             <div className="hero-status-pill">
               <span className="pulse-dot"></span>
               <span className="status-copy">Available for Software Engineering &amp; Data Roles</span>
+              <span className="status-divider">·</span>
+              <span className="status-time">
+                <i className="far fa-clock"></i> Dhaka (UTC+6): {dhakaTime || 'Active'}
+              </span>
             </div>
 
             {/* Bold, Confident Headline */}
@@ -61,6 +94,15 @@ const Hero = () => {
                 <span className="term-tag tag-stack">REACT 18 · KOTLIN · POSTGRESQL · POWER BI</span>
                 <span className="term-tag tag-cache">LATENCY: &lt;10ms</span>
               </div>
+            </div>
+
+            {/* Quick Tech Jump Pills */}
+            <div className="hero-quick-chips">
+              <span className="quick-chips-label"><i className="fas fa-bolt"></i> Quick Jump:</span>
+              <a href="#projects" className="quick-chip chip-android"><i className="fab fa-android"></i> Android TV &amp; Kotlin</a>
+              <a href="#projects" className="quick-chip chip-react"><i className="fab fa-react"></i> React 18 &amp; TS</a>
+              <a href="#projects" className="quick-chip chip-bi"><i className="fas fa-chart-pie"></i> Power BI &amp; DAX</a>
+              <a href="#projects" className="quick-chip chip-sql"><i className="fas fa-database"></i> PostgreSQL &amp; SQL</a>
             </div>
 
             {/* Balanced Engineering Metrics Strip */}

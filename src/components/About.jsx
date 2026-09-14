@@ -51,15 +51,15 @@ const About = () => {
             </div>
 
             <h3 className="story-title">
-              Crafting scalable software systems &amp; decision-grade data architectures.
+              Building reliable software &amp; data systems that solve real headaches.
             </h3>
 
             <div className="story-paragraphs">
               <p>
-                I engineer software where performance, clean architecture, and practical value converge. Across full-stack web applications, native Android platforms, and complex data intelligence models, I build solutions designed to perform reliably under high load and provide actionable clarity to users and stakeholders alike.
+                I’m a software engineer and data analyst born and based in Dhaka. I don’t write code just to push commits—I build software because I genuinely love seeing things run faster, smoother, and without crashing when traffic spikes. Whether it's crafting native Android streaming engines that run buttery-smooth on budget TV boxes or structuring clean relational schemas that turn chaotic numbers into crystal-clear Power BI dashboards, I care about practical, real-world impact.
               </p>
               <p>
-                From architecting and launching the complete official web infrastructure for <strong>NATAB (National Anti-Tuberculosis Association of Bangladesh)</strong> to modernizing academic data and payroll administration for 500+ individuals at <strong>Newcastle International School</strong>, my focus is always on engineering robust systems that eliminate operational bottlenecks.
+                Over the past few years, I’ve worked extensively as an independent freelance engineer—both <strong>locally across Bangladesh</strong> and with <strong>international clients worldwide</strong>. From deploying full-scale web platforms completely solo to overhauling administrative databases and payroll pipelines for 500+ users, my philosophy is straightforward: take a complex, messy problem, architect a resilient solution, and deliver it with zero excuses.
               </p>
             </div>
 
@@ -67,19 +67,19 @@ const About = () => {
             <div className="story-stats-grid">
               <div className="story-stat-item">
                 <span className="stat-num text-gradient-ember">100%</span>
-                <span className="stat-desc">Solo Web Architecture (NATAB)</span>
+                <span className="stat-desc">Solo Production Delivery</span>
               </div>
               <div className="story-stat-item">
                 <span className="stat-num text-gradient-cyan">~30%</span>
-                <span className="stat-desc">Reporting Velocity Improvement</span>
+                <span className="stat-desc">Workflow Velocity Improvement</span>
               </div>
               <div className="story-stat-item">
                 <span className="stat-num text-gradient-ember">500+</span>
-                <span className="stat-desc">Institutional Records Administered</span>
+                <span className="stat-desc">Institutional Records Handled</span>
               </div>
               <div className="story-stat-item">
-                <span className="stat-num text-gradient-cyan">1st Pos</span>
-                <span className="stat-desc">Mentored Govt. Scholarship Winner</span>
+                <span className="stat-num text-gradient-cyan">Global</span>
+                <span className="stat-desc">Local &amp; Remote Freelance</span>
               </div>
             </div>
           </div>
@@ -95,7 +95,7 @@ const About = () => {
               <div className="gallery-gradient-overlay"></div>
               <div className="gallery-caption">
                 <span className="gallery-name">Rabius Sani</span>
-                <span className="gallery-tag">Dhaka-1236 · Open to Remote & On-site</span>
+                <span className="gallery-tag">Dhaka-1236 · Open to Remote &amp; On-site</span>
               </div>
             </div>
 
@@ -122,8 +122,8 @@ const About = () => {
                 <i className="fas fa-graduation-cap"></i>
               </div>
               <div>
-                <h4 className="bento-subhead">Education & Credentials</h4>
-                <p className="bento-subdesc">Daffodil International University (DIU)</p>
+                <h4 className="bento-subhead">Education &amp; Credentials</h4>
+                <p className="bento-subdesc">B.Sc. in Software Engineering · Class of 2022</p>
               </div>
             </div>
 
@@ -133,7 +133,7 @@ const About = () => {
                 <span className="degree-year">Class of 2022</span>
               </div>
               <p className="degree-info">
-                Core coursework: Object-Oriented Programming, Database Systems (RDBMS & SQL), Data Structures & Algorithms, Software Architecture, Web Engineering, and Project Management.
+                Core engineering foundations: Object-Oriented Programming, Database Systems (RDBMS &amp; SQL), Data Structures &amp; Algorithms, Software Architecture, Web Engineering, and Project Management.
               </p>
             </div>
 
@@ -218,6 +218,44 @@ const About = () => {
             </div>
           </div>
 
+        </div>
+
+        {/* Engineering Philosophy & Principles Strip */}
+        <div className="about-principles-strip glass-panel">
+          <div className="principles-title-col">
+            <span className="principles-badge"><i className="fas fa-microchip"></i> Engineering Code</span>
+            <h4 className="principles-heading">How I Think &amp; Build</h4>
+          </div>
+          <div className="principles-grid">
+            <div className="principle-item">
+              <span className="principle-icon ember-text"><i className="fas fa-gauge-high"></i></span>
+              <div className="principle-content">
+                <strong>0ms Latency &amp; Memory Safety</strong>
+                <p>Strict memory management, zero leaks, and instant in-session caching on low-spec hardware.</p>
+              </div>
+            </div>
+            <div className="principle-item">
+              <span className="principle-icon cyan-text"><i className="fas fa-project-diagram"></i></span>
+              <div className="principle-content">
+                <strong>Clean Unidirectional MVI</strong>
+                <p>Predictable state flows, single source of truth, and immutable UI rendering patterns.</p>
+              </div>
+            </div>
+            <div className="principle-item">
+              <span className="principle-icon amber-text"><i className="fas fa-chart-pie"></i></span>
+              <div className="principle-content">
+                <strong>Verified Star-Schema DAX</strong>
+                <p>Denormalized dimension tables, robust relationships, and auditable measures.</p>
+              </div>
+            </div>
+            <div className="principle-item">
+              <span className="principle-icon green-text"><i className="fas fa-shield-halved"></i></span>
+              <div className="principle-content">
+                <strong>Zero Telemetry &amp; Privacy</strong>
+                <p>Local SQLite storage, zero tracking bloat, and defensive Row-Level Security.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>

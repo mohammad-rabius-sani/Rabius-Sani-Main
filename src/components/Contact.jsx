@@ -233,6 +233,54 @@ const Contact = () => {
                   <p className="form-sub">Direct inbox delivery</p>
                 </div>
 
+                {/* 1-Click Message Presets */}
+                <div className="topic-presets-row">
+                  <span className="topic-presets-label">
+                    <i className="fas fa-wand-magic-sparkles"></i> 1-Click Presets:
+                  </span>
+                  <div className="topic-preset-pills">
+                    <button
+                      type="button"
+                      className="topic-preset-pill"
+                      onClick={() => {
+                        setFormData({
+                          ...formData,
+                          subject: 'Software Engineering Role',
+                          message: "Hi Rabius, we came across your software engineering portfolio and would like to connect regarding an engineering role with our team."
+                        });
+                      }}
+                    >
+                      💼 Software Role
+                    </button>
+                    <button
+                      type="button"
+                      className="topic-preset-pill"
+                      onClick={() => {
+                        setFormData({
+                          ...formData,
+                          subject: 'Data Analytics & BI Project',
+                          message: "Hi Rabius, we have a data analytics project involving Power BI dashboards, SQL modeling, and reporting pipelines."
+                        });
+                      }}
+                    >
+                      📊 Data Project
+                    </button>
+                    <button
+                      type="button"
+                      className="topic-preset-pill"
+                      onClick={() => {
+                        setFormData({
+                          ...formData,
+                          subject: 'General Collaboration / Hello',
+                          message: "Hi Rabius, saw your work on PichiTV & PichiTube and would love to connect for an exploratory chat / freelance project."
+                        });
+                      }}
+                    >
+                      ☕ Freelance / Chat
+                    </button>
+                  </div>
+                </div>
+
                 {submitError && (
                   <div className="form-error-banner">
                     <i className="fas fa-exclamation-triangle"></i>

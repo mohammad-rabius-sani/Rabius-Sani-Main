@@ -467,3 +467,107 @@
 [data-theme="light"] .gallery-name {
   color: #0f172a;
 }
+
+/* ================= PRINCIPLES STRIP ================= */
+.about-principles-strip {
+  margin-top: 24px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  border-radius: var(--radius-lg);
+}
+
+.principles-title-col {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.principles-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: var(--accent-ember);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.principles-heading {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  flex: 1;
+}
+
+.principle-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.principle-icon {
+  font-size: 1.1rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.ember-text { color: var(--accent-ember); }
+.cyan-text { color: var(--accent-cyan); }
+.amber-text { color: var(--accent-amber); }
+.green-text { color: var(--accent-sports); }
+
+.principle-content strong {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.principle-content p {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .about-principles-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-principles-strip {
+    padding: 20px;
+  }
+  .principles-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+[data-theme="light"] .about-principles-strip {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+

@@ -395,3 +395,63 @@
   background: rgba(2, 132, 199, 0.1);
   border-color: rgba(2, 132, 199, 0.25);
 }
+
+/* ================= 1-CLICK TOPIC PRESETS ================= */
+.topic-presets-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.topic-presets-label {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--accent-ember);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.topic-preset-pills {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.topic-preset-pill {
+  padding: 5px 12px;
+  border-radius: 100px;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.topic-preset-pill:hover {
+  background: var(--bg-surface-3);
+  border-color: var(--accent-ember);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 106, 26, 0.2);
+}
+
+[data-theme="light"] .topic-preset-pill {
+  background: #f8fafc;
+  border-color: rgba(15, 23, 42, 0.12);
+  color: #334155;
+}
+
+[data-theme="light"] .topic-preset-pill:hover {
+  background: #fff7ed;
+  border-color: var(--accent-ember);
+  color: #c2410c;
+}
+
