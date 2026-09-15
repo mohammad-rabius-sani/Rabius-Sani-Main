@@ -137,10 +137,10 @@ const Navbar = ({ onOpenResume }) => {
 
         {/* Action Buttons: Theme Switcher, GitHub & Download CV */}
         <div className="navbar-actions">
-          {/* Theme Toggle Button */}
+          {/* Theme Toggle Button (Desktop only, mobile is in drawer) */}
           <button 
             type="button"
-            className="btn-theme-toggle" 
+            className="btn-theme-toggle nav-desktop-only" 
             onClick={toggleTheme}
             aria-label={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
             title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
@@ -152,18 +152,18 @@ const Navbar = ({ onOpenResume }) => {
             )}
           </button>
 
-          {/* GitHub Profile */}
+          {/* GitHub Profile (Desktop only, mobile is in drawer) */}
           <a 
             href="https://github.com/mohammad-rabius-sani" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="nav-icon-link"
+            className="nav-icon-link nav-desktop-only"
             title="GitHub Profile (Opens in New Tab)"
           >
             <i className="fab fa-github"></i>
           </a>
 
-          {/* Resume In-Browser View / Download */}
+          {/* Resume In-Browser View / Download (Visible on BOTH desktop and mobile) */}
           <button 
             type="button"
             className="btn-cv-pill"
@@ -174,7 +174,7 @@ const Navbar = ({ onOpenResume }) => {
             <span>Resume</span>
           </button>
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Mobile Hamburger Toggle (High-contrast, prominent, easy to tap) */}
           <button 
             type="button"
             className={`mobile-toggle-btn ${mobileMenuOpen ? 'is-open' : ''}`}
@@ -183,9 +183,7 @@ const Navbar = ({ onOpenResume }) => {
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-nav-drawer"
           >
-            <span></span>
-            <span></span>
-            <span></span>
+            <i className={`menu-toggle-icon fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
           </button>
         </div>
 

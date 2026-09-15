@@ -4,7 +4,7 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!assets/|Images/|favicon.svg|site.webmanifest|robots.txt|sitemap.xml|llms.txt|llms-full.txt).*)",
       "destination": "/index.html"
     }
   ],

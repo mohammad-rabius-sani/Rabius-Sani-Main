@@ -13,8 +13,7 @@
     "preview": "vite preview"
   },
   "engines": {
-    "node": ">=20.19.0",
-    "npm": ">=10.0.0"
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
@@ -29,7 +28,6 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.4",
     "oxlint": "^1.75.0",
-    "sharp": "^0.35.4",
     "vite": "^8.2.0"
   }
 }

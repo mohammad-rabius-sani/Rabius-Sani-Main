@@ -243,14 +243,19 @@
 }
 
 /* User requirement 2: Hide 3+ Years Experience / 100% Production / 5,900+ BI Records / Global card on mobile */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .hero-metrics-strip {
     display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    pointer-events: none !important;
   }
 
   .hero-section {
-    padding-top: 85px;
-    padding-bottom: 20px;
+    padding-top: 105px !important;
+    padding-bottom: 24px !important;
   }
 
   .hero-status-pill {
